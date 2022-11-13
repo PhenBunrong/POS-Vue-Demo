@@ -1,0 +1,306 @@
+<template>
+<div>
+	<div class="content pt-3">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" placeholder="Search qr code" aria-label="search qr code" aria-describedby="basic-addon2">
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary" type="button">Search</button>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-body">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>N</th>
+										<th>Product</th>
+										<th>Qty</th>
+										<th>Price</th>
+									</tr>
+								</thead>
+								<thead>
+									<tr v-for="x, index in itemOrder" :key="x.id">
+										<th>{{index + 1}}</th>
+										<th><img v-bind:src="'img/food/' + x.photo"  alt="food" class="img-size-20"></th>
+										<th>{{x.name}}</th>
+										<th>
+											<div class="btn-group">
+												<button type="button" @click="removeItem(x)" class="btn btn-outline-secondary btn-sm">
+													<i class="fas fa-minus"></i>
+												</button>
+												<button type="button" class="btn btn-outline-secondary btn-sm">
+													<strong>{{x.qty}}</strong>
+												</button>
+												<button type="button" @click="orderItem(x)" class="btn btn-outline-secondary btn-sm">
+													<i class="fas fa-plus"></i>
+												</button>
+											</div>
+										</th>
+										<th>{{x.price + '​ ៛'}}</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th colspan="3">Total</th>
+										<th>{{Total.toLocaleString() + '​ ៛'}}</th>
+									</tr>
+								</tfoot>
+							</table>
+						<div>
+							<button type="submit" @click="orderModal()" class="btn btn-primary float-right" ><i class="fas fa-cart-plus mr-2"></i>Payment</button>
+						</div>
+						</div>
+					</div>	
+				</div>
+				<div class="col-lg-8">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-6">
+									<label>Category</label>
+									<div class="input-group mb-3">
+										<select2  v-model="category" :options="orders.categories" name="category" >
+											<option value="__all" >ទាំងអស់</option>
+										</select2>
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button">add</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Table</label>
+										<div class="input-group mb-3">
+											<select2  v-model="table" :options="orders.tables" name="table">
+												<option value="1" >Tbl-01</option>
+											</select2>
+											<div class="input-group-append">
+												<button class="btn btn-primary" type="button">add</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-2 image" v-for="item in items" :key="item.id">
+									<div class="product-image-thumbs m-0" @click="orderItem(item)">
+										<div class="product-image-thumbs p-0" style="margin: 0 auto;">
+											<img v-bind:src="'img/food/' + item.photo"  alt="food" class="img-size-64">
+										</div>
+									</div>
+									<div class="text-center">
+										<strong>{{ item.name_kh }}</strong><br>
+										<label class="badge badge-danger">{{ item.price }}</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" tabindex='-1' role="dialog" id="order_model">
+				<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<form class="form-horizontal" @submit.prevent="onSave" @change="form.onKeydow($event)" role="form" method="post" enctype="multiple/form-data">
+					<div class="modal-header">
+						<h5 class="modal-title">Order</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+						<div class="form-group col-sm-6">
+							<label for="total">សរុប</label>
+							<input type="text" v-model="Total" class="form-control font-size-order" id="total" placeholder="Total" disabled>
+						</div>
+						<div class="form-group col-sm-6">
+							<label for="total">បញ្ចុះតម្លៃ</label>
+							<input type="text" v-model="Discount" class="form-control font-size-order" id="discount" placeholder="Discount">
+						</div>
+						</div>
+						<div class="form-group">
+						<label for="TotalPay">ប្រាក់សរុប</label>
+						<input type="number" v-model="TotalPay"
+							class="form-control font-size-order"
+							:class="{'is-invalid' : form.errors.has('TotalPay')}"
+							id="TotalPay" name="TotalPay" placeholder="Amount To Pay" disabled>
+							<has-error :form="form" field="TotalPay"></has-error>
+						</div>
+						<div class="form-group">
+						<label for="CashIn">ប្រាក់បានទទួល</label>
+						<div class="btn-group">
+							<button type="button" @click="onCashIn(5000)" class="btn btn-outline-primary"><strong>5,000៛</strong></button>
+							<button type="button" @click="onCashIn(10000)" class="btn btn-outline-primary"><strong>10,000៛</strong></button>
+							<button type="button" @click="onCashIn(20000)" class="btn btn-outline-primary"><strong>20,000៛</strong></button>
+							<button type="button" @click="onCashIn(50000)" class="btn btn-outline-primary"><strong>50,000៛</strong></button>
+							<button type="button" @click="onCashIn(100000)" class="btn btn-outline-primary"><strong>100,000៛</strong></button>
+						</div>
+						<input type="number" v-model="CashIn"
+							class="form-control font-size-order mt-1"
+							:class="{'is-invalid' : form.errors.has('CashIn')}"
+							id="CashIn" name="CashIn" placeholder="Cash In">
+							<has-error :form="form" field="CashIn"></has-error>
+						</div>
+
+						<div class="form-group md-0">
+						<label for="change">ប្រាក់អាប់</label>
+						<input type="number" v-model="Change" class="form-control font-size-order" id="change" placeholder="Change" disabled>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary"><i class="fas fa-save mr-1"></i>Save</button>
+					</div>
+					</form>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+  
+
+</template>
+<script>
+export default {
+        props:['orders'],
+        data(){
+          return{
+            category:"__all",
+            table:"1",
+			items:"",
+			itemOrder:[],
+			//No: 0,
+			Total: 0,
+			Discount: 0,
+			TotalPay: 0,
+			CashIn: 0,
+			Change: 0,
+			form: new Form()
+          }
+        },
+
+        mounted(){
+           this.getItems(this.category);
+        },
+        methods:{
+          getItems(value){
+            axios.get('product/rows/' + value)
+                    .then(res => {
+                        this.items = res.data;
+                        //console.log(res.data);
+                    }).catch(error => console.log(error));
+		  },
+		  
+		  orderItem(value){
+			  
+			  let index =this.itemOrder.findIndex( (x) => x.id === value.id);
+console.log(value);
+			  if(index != -1){
+				  this.itemOrder[index].qty +=1;
+				  this.Total += value.price;
+			  }else{
+				  let order ={
+					  //No: this.No +=1,
+					  id: value.id,
+					  photo: value.photo,
+					  name: value.name_kh,
+					  price: value.price,
+					  qty: 1
+				  }
+
+				  this.Total += value.price;
+				  this.itemOrder.push(order);
+			  }
+		  },
+
+		 removeItem(param) {
+			 let index =this.itemOrder.findIndex( (x) => x.id === param.id);
+
+			 if(this.itemOrder[index].qty > 1){
+				 this.itemOrder[index].qty -=1;
+				 this.Total -= param.price;
+			 }else {
+				 this.Total -= param.price;
+				 this.itemOrder = this.itemOrder.filter(it => it.id != param.id);
+			 }
+
+			// it => it.id != param.id Or
+			// ƒ (it) {
+			// 	return it.id != param.id;
+			// }
+		 },
+
+		 orderModal(){
+			this.TotalPay = this.Total - this.Discount;
+			this.CashIn = 0;
+			this.Discount = 0;
+			$('#order_model').modal('show');
+		 },
+		 onCashIn(value){
+			this.CashIn = parseInt(this.CashIn) + value;
+		 },
+		 onSave(){
+			this.form = new Form({
+				Total : this.Total,
+				Discount : this.Discount,
+				TotalPay : this.TotalPay,
+				CashIn : this.CashIn,
+				orders : this.itemOrder,
+				table : this.table,
+			});
+
+			this.form.post('/save').then(res =>{
+				this.itemOrder = [];
+				this.Total = 0;
+				$('#order_model').modal('hide');
+			}).catch(err => console.log(err));
+		 }
+        },
+		watch: {
+			category: function(value){
+				this.getItems(value);
+			},
+			Discount: function (value){
+				this.TotalPay = this.Total - this.Discount;
+				this.Change = this.CashIn - this.TotalPay;
+			},
+			CashIn: function (value){
+				this.TotalPay = this.Total - this.Discount;
+				this.Change = this.CashIn - this.TotalPay;
+			},
+		},
+
+    }
+
+</script>
+
+
+
+<style scoped>
+.img-size-64 {
+    width: 110px;
+	height: 110px;
+}
+.img-size-20 {
+    width: 63px;
+    height: 52px;
+}
+.text-center {
+    text-align: center !important;
+	font-size: 12px;
+	margin: 10px;
+}
+.image{
+	margin-right:-24px;
+}
+
+</style>
+
+
+
+
+
