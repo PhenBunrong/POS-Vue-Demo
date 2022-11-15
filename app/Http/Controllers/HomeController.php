@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 
 use App\Category;
+use App\Customer;
 use App\POS\Order;
 use App\POS\Table;
 use App\POS\Product_order;
@@ -39,33 +40,37 @@ class HomeController extends Controller
         
         $tabl =  Table::select('id','name as text')->get();
 
-        return view('view',['category' => $cate , 'table' => $tabl]);
+        $customer =  Customer::select('id','name as text')->get();
 
-        /* return view('view'); */
+        return view('view',['category' => $cate , 'table' => $tabl, 'customer' => $customer]);
     }
 
-    private function product_order(){
-        
-        return  Product_order::select('order','product','price','qty')->get();
+    public function category_json()
+    {
+        $collection = Category::select('id', \DB::raw('concat(name,"-",name_kh) as text'))->get();
+        return  $collection;
     }
 
-    
-    public function rowsByCate($cate){
-        if($cate == "__all"){
-           $products = \DB::table('view_product')->get();
-           return view('view', compact('products'));
-        }else{
-            $products = \DB::table('view_product')->where('category' , $cate)->get();
-            return view('view', compact('products'));
-        }
+    public function search_product_json(Request $request, $limit, $key)
+    {
+        $collection = Product::where('name_kh', $key)
+            ->orWhere('price', $key)
+            ->orWhere('name_kh', 'LIKE', '%'. $key . '%')
+            ->orderBy('id','DESC')->paginate($limit);
+        return $collection;
     }
-/*     public function getRow(){
-        
-        return \DB::table('view_product')->orderBy('id','desc')->paginate(5)
- 
-         return $product
-     } */
 
+    public function latest_product_json(Request $request)
+    {
+        $collection = \DB::table('view_product')
+            ->orderBy('id', 'DESC')->paginate(6);
+        return $collection;
+    }
+
+    public function json_customer_rows(){
+        $collection = Customer::select('id', \DB::raw('name'))->get();
+        return  $collection;
+    }
 
     public function save(Request $request)
     {
@@ -78,7 +83,7 @@ class HomeController extends Controller
             'order_date' => now(),
             'table' => $request->table,
             'user' => auth()->user()->id,
-            'customer' => 1,
+            'customer' => $request->customer,
             'totalPay' => $request->TotalPay,
             'cashIn' => $request->CashIn,
         ]);
@@ -100,5 +105,29 @@ class HomeController extends Controller
 
         return response()->json($order);
     }
-     
+
+
+    // private function product_order()
+    // {
+    //     return  Product_order::select('order','product','price','qty')->get()
+    // }
+
+    
+    // public function rowsByCate($cate)
+    // {
+    //     if($cate == "__all"){
+    //        $products = \DB::table('view_product')->get()
+    //        return view('view', compact('products'))
+    //     }else{
+    //         $products = \DB::table('view_product')->where('category' , $cate)->get()
+    //         return view('view', compact('products'))
+    //     }
+    // }
+
+     /* public function getRow(){
+        
+        return \DB::table('view_product')->orderBy('id','desc')->paginate(5)
+ 
+         return $product
+     } */
 }

@@ -4,5 +4,5 @@
 @section('view' , 'active')
 
 @section('content')
- <home :orders ="{ categories: {{ $category }}, tables: {{ $table }}}"></home>
+ <home :orders ="{ tables: {{ $table }}, customers: {{ $customer }}}"></home>
 @endsection

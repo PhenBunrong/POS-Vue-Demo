@@ -35,8 +35,8 @@ class ProductController extends Controller
         return  Category::select('id',\DB::raw('concat(name, "-" ,name_kh )as text'))->get();
     }
 
-    public function getRow(){
-        
+    public function getRow()
+    {
         return \DB::table('view_product')->orderBy('id','desc')->paginate(5);
     }
 
@@ -48,8 +48,8 @@ class ProductController extends Controller
         }
     }
 
-/*     private function categories(){
-        return Category::select('id', \DB::raw('concat(name, "-" , name_nk) as text'))->get();
+    /* private function categories(){
+        return Category::select('id', \DB::raw('concat(name, "-" , name_nk) as text'))->get()
     } */
     
     public function store(Request $request)

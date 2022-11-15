@@ -55,6 +55,11 @@ Route::prefix('product/rows')->group(function(){
     Route::get('/{cate}', 'ProductController@rowsByCate')->name('rowsByCate');
 });
 
+Route::get('/latest-products-json', 'HomeController@latest_product_json')->name('product_latest_product_json');
+Route::get('/json/category/rows/', 'HomeController@category_json')->name('product_category_json');
+Route::get('/json/search-product-json/{limit}/{key}',"HomeController@search_product_json");
+Route::get('/json-customer-rows',"HomeController@json_customer_rows");
+
 Route::prefix('view')->group(function(){
     Route::get('/', 'HomeController@index')->name('view.index');
     Route::get('/get/all', "HomeController@getRow")->name('view.get');

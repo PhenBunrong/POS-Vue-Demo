@@ -139,7 +139,6 @@
                                                 :custom-label="CategoryLabel"
                                                 :searchable="false">
                                                 <option value="" disabled>-- ជ្រើសរើសប្រភេទ --</option>
-
                                             </multiselect>
                                             <has-error :form="form" field="category"></has-error>
                                         </div>

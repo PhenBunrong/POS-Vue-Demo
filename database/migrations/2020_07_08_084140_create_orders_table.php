@@ -18,13 +18,12 @@ class CreateOrdersTable extends Migration
             $table->date('order_date');
             $table->unsignedBigInteger('table');
             $table->unsignedBigInteger('user');
-            $table->unsignedBigInteger('customer');
+            $table->integer('customer');
             $table->float('totalPay');
             $table->float('cashIn');
             $table->timestamps();
 
             $table->foreign('table')->references('id')->on('tables')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('customer')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }

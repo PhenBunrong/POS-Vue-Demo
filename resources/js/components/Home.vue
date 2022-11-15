@@ -5,9 +5,12 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Search qr code" aria-label="search qr code" aria-describedby="basic-addon2">
+						<select2  v-model="customer.id">
+							<option value="0" >Warking Customer</option>
+							<option v-for="(x,index) in customers" :key="index" :value="x.id">{{x.name}}</option>
+						</select2>
 						<div class="input-group-append">
-							<button class="btn btn-outline-secondary" type="button">Search</button>
+							<button class="btn btn-primary" @click="addCustomer()" type="button">+</button>
 						</div>
 					</div>
 					<div class="card">
@@ -16,6 +19,7 @@
 								<thead>
 									<tr>
 										<th>N</th>
+										<th>Image</th>
 										<th>Product</th>
 										<th>Qty</th>
 										<th>Price</th>
@@ -44,29 +48,36 @@
 								</thead>
 								<tfoot>
 									<tr>
-										<th colspan="3">Total</th>
+										<th colspan="4">Total</th>
 										<th>{{Total.toLocaleString() + '​ ៛'}}</th>
 									</tr>
 								</tfoot>
 							</table>
-						<div>
-							<button type="submit" @click="orderModal()" class="btn btn-primary float-right" ><i class="fas fa-cart-plus mr-2"></i>Payment</button>
 						</div>
+						<div class="card-footer">
+							<div class="btn-group btn-block">
+								<button type="submit" @click="cancelItem()" class="btn btn-danger float-right" ><i class="fas fa-times"> &nbsp;</i>Cancel</button>
+								<button type="submit" @click="orderModal()" class="btn btn-primary float-right" ><i class="fas fa-cart-plus mr-2"></i>Payment</button>
+							</div>
 						</div>
 					</div>	
 				</div>
 				<div class="col-lg-8">
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" @keyup="search_product($event.target.value)" placeholder="Search Product" aria-label="Search Product" aria-describedby="basic-addon2">
+					</div>
 					<div class="card">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-sm-6">
 									<label>Category</label>
 									<div class="input-group mb-3">
-										<select2  v-model="category" :options="orders.categories" name="category" >
+										<select2  v-model="category">
 											<option value="__all" >ទាំងអស់</option>
+											<option v-for="(x,index) in categories" :key="index" :value="x.id">{{x.text}}</option>
 										</select2>
 										<div class="input-group-append">
-											<button class="btn btn-primary" type="button">add</button>
+											<button class="btn btn-primary" @click="addCategory()" type="button">+</button>
 										</div>
 									</div>
 								</div>
@@ -78,7 +89,7 @@
 												<option value="1" >Tbl-01</option>
 											</select2>
 											<div class="input-group-append">
-												<button class="btn btn-primary" type="button">add</button>
+												<button class="btn btn-primary" type="button">+</button>
 											</div>
 										</div>
 									</div>
@@ -104,61 +115,102 @@
 			<div class="modal fade" tabindex='-1' role="dialog" id="order_model">
 				<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
-					<form class="form-horizontal" @submit.prevent="onSave" @change="form.onKeydow($event)" role="form" method="post" enctype="multiple/form-data">
-					<div class="modal-header">
-						<h5 class="modal-title">Order</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="close">
-						<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="row">
-						<div class="form-group col-sm-6">
-							<label for="total">សរុប</label>
-							<input type="text" v-model="Total" class="form-control font-size-order" id="total" placeholder="Total" disabled>
+					<form class="form-horizontal" @submit.prevent="onSubmit" @change="form.onKeydow($event)" role="form" method="post" enctype="multiple/form-data">
+						<div class="modal-header">
+							<h5 class="modal-title">Payment Order</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="close">
+							<span aria-hidden="true">&times;</span>
+							</button>
 						</div>
-						<div class="form-group col-sm-6">
-							<label for="total">បញ្ចុះតម្លៃ</label>
-							<input type="text" v-model="Discount" class="form-control font-size-order" id="discount" placeholder="Discount">
-						</div>
-						</div>
-						<div class="form-group">
-						<label for="TotalPay">ប្រាក់សរុប</label>
-						<input type="number" v-model="TotalPay"
-							class="form-control font-size-order"
-							:class="{'is-invalid' : form.errors.has('TotalPay')}"
-							id="TotalPay" name="TotalPay" placeholder="Amount To Pay" disabled>
-							<has-error :form="form" field="TotalPay"></has-error>
-						</div>
-						<div class="form-group">
-						<label for="CashIn">ប្រាក់បានទទួល</label>
-						<div class="btn-group">
-							<button type="button" @click="onCashIn(5000)" class="btn btn-outline-primary"><strong>5,000៛</strong></button>
-							<button type="button" @click="onCashIn(10000)" class="btn btn-outline-primary"><strong>10,000៛</strong></button>
-							<button type="button" @click="onCashIn(20000)" class="btn btn-outline-primary"><strong>20,000៛</strong></button>
-							<button type="button" @click="onCashIn(50000)" class="btn btn-outline-primary"><strong>50,000៛</strong></button>
-							<button type="button" @click="onCashIn(100000)" class="btn btn-outline-primary"><strong>100,000៛</strong></button>
-						</div>
-						<input type="number" v-model="CashIn"
-							class="form-control font-size-order mt-1"
-							:class="{'is-invalid' : form.errors.has('CashIn')}"
-							id="CashIn" name="CashIn" placeholder="Cash In">
-							<has-error :form="form" field="CashIn"></has-error>
-						</div>
+						<div class="modal-body">
+							<div class="row">
+							<div class="form-group col-sm-6">
+								<label for="total">សរុប</label>
+								<input type="text" v-model="Total" class="form-control font-size-order" id="total" placeholder="Total" disabled>
+							</div>
+							<div class="form-group col-sm-6">
+								<label for="total">បញ្ចុះតម្លៃ</label>
+								<input type="text" v-model="Discount" class="form-control font-size-order" id="discount" placeholder="Discount">
+							</div>
+							</div>
+							<div class="form-group">
+							<label for="TotalPay">ប្រាក់សរុប</label>
+							<input type="number" v-model="TotalPay"
+								class="form-control font-size-order"
+								:class="{'is-invalid' : form.errors.has('TotalPay')}"
+								id="TotalPay" name="TotalPay" placeholder="Amount To Pay" disabled>
+								<has-error :form="form" field="TotalPay"></has-error>
+							</div>
+							<div class="form-group">
+							<label for="CashIn">ប្រាក់បានទទួល</label>
+							<div class="btn-group">
+								<button type="button" @click="onCashIn(5000)" class="btn btn-outline-primary"><strong>5,000៛</strong></button>
+								<button type="button" @click="onCashIn(10000)" class="btn btn-outline-primary"><strong>10,000៛</strong></button>
+								<button type="button" @click="onCashIn(20000)" class="btn btn-outline-primary"><strong>20,000៛</strong></button>
+								<button type="button" @click="onCashIn(50000)" class="btn btn-outline-primary"><strong>50,000៛</strong></button>
+								<button type="button" @click="onCashIn(100000)" class="btn btn-outline-primary"><strong>100,000៛</strong></button>
+							</div>
+							<input type="number" v-model="CashIn"
+								class="form-control font-size-order mt-1"
+								:class="{'is-invalid' : form.errors.has('CashIn')}"
+								id="CashIn" name="CashIn" placeholder="Cash In">
+								<has-error :form="form" field="CashIn"></has-error>
+							</div>
 
-						<div class="form-group md-0">
-						<label for="change">ប្រាក់អាប់</label>
-						<input type="number" v-model="Change" class="form-control font-size-order" id="change" placeholder="Change" disabled>
+							<div class="form-group md-0">
+								<label for="change">ប្រាក់អាប់</label>
+								<input type="number" v-model="Change" class="form-control font-size-order" id="change" placeholder="Change" disabled>
+							</div>
 						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary"><i class="fas fa-save mr-1"></i>Save</button>
-					</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary"><i class="fas fa-save mr-1"></i>Save</button>
+						</div>
 					</form>
 				</div>
 				</div>
 			</div>
 		</div>
+
+		<div class="modal fade" id="modal-category">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <form @submit.prevent="createCategory" @change="form.onKeydow($event)" role="form" method="post">
+                        <div class="modal-header">
+                        <h4 class="modal-title">បញ្ចូលព័ត៌មានថ្ម</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                
+                                <label for="name">ឈ្មោះអង្គគ្លេស</label>
+                                <input type="text" class="form-control" v-model="form.name" name="name" id="name" placeholder="ឈ្មោះអង្គគ្លេស" autocomplete="name" autofocus required>
+                            </div>
+
+                            <div class="form-group">
+                                
+                                <label for="name_kh">ឈ្មោះខ្មែរ</label>
+                                <input type="text" class="form-control" v-model="form.name_kh" name="name_kh" id="name_kh" placeholder="ឈ្មោះខ្មែរ" autocomplete="name_kh" required>
+                            </div>
+
+                            <div class="form-group">
+                                
+                                <label for="dsc">បរិយាយ</label>
+                                <input type="text" class="form-control" id="dsc" name="dsc" v-model="form.dsc" placeholder="បរិយាយ" autocomplete="dsc"  >
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times"> &nbsp;</i>បោះបង់</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"> &nbsp;</i>រក្សាទុក</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+        </div>
+		
 	</div>
 </div>
   
@@ -171,8 +223,13 @@ export default {
           return{
             category:"__all",
             table:"1",
+			customers: {},
+			customer: {
+				id:'0'
+			},
 			items:"",
 			itemOrder:[],
+			categories:{},
 			//No: 0,
 			Total: 0,
 			Discount: 0,
@@ -184,81 +241,146 @@ export default {
         },
 
         mounted(){
-           this.getItems(this.category);
+           	this.getItems(this.category);
+			this.category_json();
+			this.customer_json();
+
+			Fire.$on('onCreated', (page=1)=>{
+				this.category_json(page);
+				this.customer_json();
+			});
         },
         methods:{
-          getItems(value){
-            axios.get('product/rows/' + value)
+
+			getItems(value){
+				axios.get('product/rows/' + value)
+						.then(res => {
+							this.items = res.data;
+							//console.log(res.data);
+						}).catch(error => console.log(error));
+			},
+			search_product: _.debounce(function(key){
+					key.length > 0 ?
+						$.get('/json/search-product-json/6/'+key,(res) => {
+							this.items = res.data;
+						})
+					:
+						this.getItems("__all");
+				},500),
+				
+			category_json(page = 1) {
+                axios.get('/json/category/rows/?page=' + page)
                     .then(res => {
-                        this.items = res.data;
+                        this.categories = res.data;
                         //console.log(res.data);
-                    }).catch(error => console.log(error));
-		  },
-		  
-		  orderItem(value){
-			  
-			  let index =this.itemOrder.findIndex( (x) => x.id === value.id);
-console.log(value);
-			  if(index != -1){
-				  this.itemOrder[index].qty +=1;
-				  this.Total += value.price;
-			  }else{
-				  let order ={
-					  //No: this.No +=1,
-					  id: value.id,
-					  photo: value.photo,
-					  name: value.name_kh,
-					  price: value.price,
-					  qty: 1
-				  }
+                    })
+                    .catch(error => console.log(error));
+            }, 
+			customer_json(){
+				axios.get('/json-customer-rows')
+					.then(res => {
+						this.customers = res.data;
+					});
+			},
+			orderItem(value){
+				
+				let index =this.itemOrder.findIndex( (x) => x.id === value.id);
 
-				  this.Total += value.price;
-				  this.itemOrder.push(order);
-			  }
-		  },
+				if(index != -1){
+					this.itemOrder[index].qty +=1;
+					this.Total += value.price;
+				}else{
+					let order ={
+						//No: this.No +=1,
+						id: value.id,
+						photo: value.photo,
+						name: value.name_kh,
+						price: value.price,
+						qty: 1
+					}
 
-		 removeItem(param) {
-			 let index =this.itemOrder.findIndex( (x) => x.id === param.id);
+					this.Total += value.price;
+					this.itemOrder.push(order);
+				}
+			},
 
-			 if(this.itemOrder[index].qty > 1){
-				 this.itemOrder[index].qty -=1;
-				 this.Total -= param.price;
-			 }else {
-				 this.Total -= param.price;
-				 this.itemOrder = this.itemOrder.filter(it => it.id != param.id);
-			 }
+			removeItem(param) {
+				let index =this.itemOrder.findIndex( (x) => x.id === param.id);
 
-			// it => it.id != param.id Or
-			// ƒ (it) {
-			// 	return it.id != param.id;
-			// }
-		 },
+				if(this.itemOrder[index].qty > 1){
+					this.itemOrder[index].qty -=1;
+					this.Total -= param.price;
+				}else {
+					this.Total -= param.price;
+					this.itemOrder = this.itemOrder.filter(it => it.id != param.id);
+				}
 
-		 orderModal(){
-			this.TotalPay = this.Total - this.Discount;
-			this.CashIn = 0;
-			this.Discount = 0;
-			$('#order_model').modal('show');
-		 },
-		 onCashIn(value){
-			this.CashIn = parseInt(this.CashIn) + value;
-		 },
-		 onSave(){
-			this.form = new Form({
-				Total : this.Total,
-				Discount : this.Discount,
-				TotalPay : this.TotalPay,
-				CashIn : this.CashIn,
-				orders : this.itemOrder,
-				table : this.table,
-			});
+				// it => it.id != param.id Or
+				// ƒ (it) {
+				// 	return it.id != param.id;
+				// }
+			},
 
-			this.form.post('/save').then(res =>{
+			orderModal(){
+				this.TotalPay = this.Total - this.Discount;
+				this.CashIn = 0;
+				this.Discount = 0;
+				$('#order_model').modal('show');
+			},
+			cancelItem(){
 				this.itemOrder = [];
 				this.Total = 0;
-				$('#order_model').modal('hide');
-			}).catch(err => console.log(err));
-		 }
+			},
+			onCashIn(value){
+				this.CashIn = parseInt(this.CashIn) + value;
+			},
+			CustomerLabel({text}){
+                return `${text}`
+            },
+			onSubmit(){
+				this.form = new Form({
+					Total : this.Total,
+					Discount : this.Discount,
+					TotalPay : this.TotalPay,
+					CashIn : this.CashIn,
+					orders : this.itemOrder,
+					table : this.table,
+					customer : this.customer.id,
+				});
+				this.form.post('/save').then(res =>{
+					this.itemOrder = [];
+					this.Total = 0;
+					$('#order_model').modal('hide');
+				}).catch(err => console.log(err));
+			},
+
+			addCategory(){
+				this.method = false;
+                this.form.reset();
+				$('#modal-category').modal('show');
+			},
+			
+			createCategory(){
+                this.form.post('/category')
+                    .then(res =>{
+						Fire.$emit('onCreated', 1);
+                        $('#modal-category').modal('hide');
+                    }).catch(error => console.log(error)); 
+            },
+
+			addCustomer(){
+				this.method = false;
+				this.form.reset();
+				$('#modal-customer').modal('show');
+			},
+
+			createCustomer(){
+				this.form.post('/customer').then(res =>{
+					Fire.$emit('onCreated', 1);
+					$('#modal-customer').modal('hide');
+
+				}).catch(error => console.log(error)); 
+			},
         },
 		watch: {
 			category: function(value){
@@ -286,8 +408,8 @@ console.log(value);
 	height: 110px;
 }
 .img-size-20 {
-    width: 63px;
-    height: 52px;
+    width: 40px;
+    height: 40px;
 }
 .text-center {
     text-align: center !important;
@@ -297,10 +419,11 @@ console.log(value);
 .image{
 	margin-right:-24px;
 }
+.card{
+	min-height: 150% !important;
+}
 
+.input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+    height: 98%;
+}
 </style>
-
-
-
-
-
