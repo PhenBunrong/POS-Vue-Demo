@@ -8,12 +8,6 @@
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">ព័ត៌មានអតិថិជន</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                    <li class="breadcrumb-item active">ព័ត៌មានផលិតផល</li>
-                    </ol>
-                </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
             </div>
@@ -27,10 +21,10 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">
-                                            <a class="btn btn-primary btn-sm" @click="newProduct">
-                                                <i class="fas fa-plus-circle"></i>
-                                                បញ្ចូលព័ត៌មានថ្ម
-                                            </a>
+                                <a class="btn btn-primary btn-sm" @click="newProduct">
+                                    <i class="fas fa-plus-circle"></i>
+                                    បញ្ចូលព័ត៌មានថ្ម
+                                </a>
                             </div>
 
                             <div class="card-tools">
@@ -47,39 +41,37 @@
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <ul class="products-list product-list-in-card pl-2 pr-2">
-                            <li class="item" v-for="pro in product.data" :key="product.id">
-                                <div class="product-img">
-                                        <img v-bind:src="'img/food/' + pro.photo" alt="Product Image" class="img-size-50">
-                                </div>
-                                <div class="product-info">
+                                <li class="item" v-for="pro,index in product.data" :key="product.id">
+                                    <div class="product-img">
+                                            <img v-bind:src="'img/food/' + pro.photo" alt="Product Image" class="img-size-50">
+                                    </div>
+                                    <div class="product-info">
+                                            <a href="javascript:void(0)" class="product-title"> &nbsp;&nbsp;&nbsp;&nbsp;{{ pro.name_kh   + " - " + pro.name }}
+                                                    &nbsp;&nbsp;&nbsp;<span class="badge badge-danger">{{ pro.price +"&nbsp;៛" }}</span>
+                                                    <span class="badge badge-primary">{{ pro.category_name }}</span></a>
+                                            <div class="float-right">
+                                                <a class="btn btn-primary btn-sm" @click="infoProduct(pro)">
+                                                        <i class="fas fa-folder">
+                                                        </i>
+                                                        មើល
+                                                    </a>
+                                                    <a class="btn btn-info btn-sm" @click="infoProduct(pro)">
+                                                        <i class="fas fa-pencil-alt">
+                                                        </i>
+                                                        កែប្រែ
+                                                    </a>
+                                                    <a class="btn btn-danger btn-sm" @click="deleteProduct(pro.id)">
+                                                        <i class="fas fa-trash">
+                                                        </i>
+                                                        លុប
+                                                    </a>
+                                            </div>
+                                            <span class="product-description">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ pro.dsc }}
+                                            </span>
+                                    </div>
                                     
-                                        <a href="javascript:void(0)" class="product-title"> &nbsp;&nbsp;&nbsp;&nbsp;{{ pro.name_kh   + " - " + pro.name }}
-                                                &nbsp;&nbsp;&nbsp;<span class="badge badge-danger">{{ pro.price +"&nbsp;៛" }}</span>
-                                                <span class="badge badge-primary">{{ pro.category_name }}</span></a>
-                                        <div class="float-right">
-                                            <a class="btn btn-primary btn-sm" @click="infoProduct(pro)">
-                                                    <i class="fas fa-folder">
-                                                    </i>
-                                                    មើល
-                                                </a>
-                                                <a class="btn btn-info btn-sm" @click="infoProduct(pro)">
-                                                    <i class="fas fa-pencil-alt">
-                                                    </i>
-                                                    កែប្រែ
-                                                </a>
-                                                <a class="btn btn-danger btn-sm" @click="deleteProduct(pro.id)">
-                                                    <i class="fas fa-trash">
-                                                    </i>
-                                                    លុប
-                                                </a>
-                                        </div>
-                                                <span class="product-description">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ pro.dsc }}
-                                                </span>
-                                       
-                                </div>
-                                
-                            </li>
+                                </li>
                             </ul>
                         </div>
                                     

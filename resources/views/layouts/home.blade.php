@@ -11,7 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title> {{config('app.name', 'CND')}} | @yield('title')</title>
+  <title> {{config('app.name', 'POS')}} | @yield('title')</title>
 
   
   <link rel="stylesheet" href="{{ asset('css/app.css')}}">
@@ -27,7 +27,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">CND</a>
+        <a href="index3.html" class="nav-link">POS</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('product.index')}}" class="nav-link">គ្រប់គ្រង់ម្ហូប</a>

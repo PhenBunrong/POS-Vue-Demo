@@ -50,6 +50,11 @@ class HomeController extends Controller
         $collection = Category::select('id', \DB::raw('concat(name,"-",name_kh) as text'))->get();
         return  $collection;
     }
+    public function table_json()
+    {
+        $collection = Table::select('id','name')->get();
+        return  $collection;
+    }
 
     public function search_product_json(Request $request, $limit, $key)
     {

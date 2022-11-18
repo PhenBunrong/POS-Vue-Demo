@@ -41,6 +41,14 @@ Route::prefix('category')->group(function(){
     Route::delete('/{id}', 'CategoryController@destroy')->name('category.destroy');
 });
 
+Route::prefix('table')->group(function(){
+    Route::get('/', 'TableController@index')->name('table.index');
+    Route::post('/', 'TableController@store')->name('table.store');
+    Route::get('/get/all', "TableController@getRow")->name('table.get');
+    Route::put('/{id}', 'TableController@update')->name('table.update');
+    Route::delete('/{id}', 'TableController@destroy')->name('table.destroy');
+});
+
 
 Route::prefix('product')->group(function(){
     Route::get('/', 'ProductController@index')->name('product.index');
@@ -59,6 +67,7 @@ Route::get('/latest-products-json', 'HomeController@latest_product_json')->name(
 Route::get('/json/category/rows/', 'HomeController@category_json')->name('product_category_json');
 Route::get('/json/search-product-json/{limit}/{key}',"HomeController@search_product_json");
 Route::get('/json-customer-rows',"HomeController@json_customer_rows");
+Route::get('/json-table-rows',"HomeController@table_json");
 
 Route::prefix('view')->group(function(){
     Route::get('/', 'HomeController@index')->name('view.index');

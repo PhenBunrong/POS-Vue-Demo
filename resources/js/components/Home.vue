@@ -6,14 +6,24 @@
 				<div class="col-lg-4">
 					<div class="input-group mb-3">
 						<select2  v-model="customer.id">
-							<option value="0" >Warking Customer</option>
+							<option value="0" >Walking Customer</option>
 							<option v-for="(x,index) in customers" :key="index" :value="x.id">{{x.name}}</option>
 						</select2>
 						<div class="input-group-append">
-							<button class="btn btn-primary" @click="addCustomer()" type="button">+</button>
+							<button class="btn btn-primary" @click="addCustomer()" type="button"><i class="fa fa-plus"></i></button>
 						</div>
 					</div>
-					<div class="card">
+					<div class="form-group">
+						<div class="input-group mb-3">
+							<select2  v-model="table.id" name="table">
+								<option v-for="(x,index) in tables" :key="index" :value="x.id">{{x.name}}</option>
+							</select2>
+							<div class="input-group-append">
+								<button class="btn btn-primary" @click="addTable()" type="button"><i class="fa fa-plus"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="card table-card">
 						<div class="card-body">
 							<table class="table">
 								<thead>
@@ -23,6 +33,7 @@
 										<th>Product</th>
 										<th>Qty</th>
 										<th>Price</th>
+										<th></th>
 									</tr>
 								</thead>
 								<thead>
@@ -44,72 +55,67 @@
 											</div>
 										</th>
 										<th>{{x.price + '​ ៛'}}</th>
+										<th><i class="fa fa-trash"></i></th>
 									</tr>
 								</thead>
-								<tfoot>
-									<tr>
-										<th colspan="4">Total</th>
-										<th>{{Total.toLocaleString() + '​ ៛'}}</th>
-									</tr>
-								</tfoot>
 							</table>
 						</div>
 						<div class="card-footer">
+							<div class="text-total">
+								<p>Total:</p>
+								<p>{{Total.toLocaleString() + '​ ៛'}}</p>
+							</div>
+						</div>
+						<div class="pay-footer">
 							<div class="btn-group btn-block">
-								<button type="submit" @click="cancelItem()" class="btn btn-danger float-right" ><i class="fas fa-times"> &nbsp;</i>Cancel</button>
-								<button type="submit" @click="orderModal()" class="btn btn-primary float-right" ><i class="fas fa-cart-plus mr-2"></i>Payment</button>
+								<a type="button" @click="cancelItem()" class="btn-payment btn-danger float-right" ><i class="fas fa-times"> &nbsp;</i>Cancel</a>
+								<a type="button" @click="orderModal()" class="btn-payment btn-primary float-right" ><i class="fas fa-cart-plus mr-2"></i>Payment</a>
 							</div>
 						</div>
 					</div>	
 				</div>
 				<div class="col-lg-8">
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" @keyup="search_product($event.target.value)" placeholder="Search Product" aria-label="Search Product" aria-describedby="basic-addon2">
-					</div>
-					<div class="card">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-sm-6">
-									<label>Category</label>
-									<div class="input-group mb-3">
-										<select2  v-model="category">
-											<option value="__all" >ទាំងអស់</option>
-											<option v-for="(x,index) in categories" :key="index" :value="x.id">{{x.text}}</option>
-										</select2>
-										<div class="input-group-append">
-											<button class="btn btn-primary" @click="addCategory()" type="button">+</button>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label>Table</label>
-										<div class="input-group mb-3">
-											<select2  v-model="table" :options="orders.tables" name="table">
-												<option value="1" >Tbl-01</option>
-											</select2>
-											<div class="input-group-append">
-												<button class="btn btn-primary" type="button">+</button>
-											</div>
-										</div>
-									</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="input-group mb-3">
+								<select2  v-model="category">
+									<option value="__all" >ទាំងអស់</option>
+									<option v-for="(x,index) in categories" :key="index" :value="x.id">{{x.text}}</option>
+								</select2>
+								<div class="input-group-append">
+									<button class="btn btn-primary" @click="addCategory()" type="button"><i class="fa fa-plus"></i></button>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-sm-2 image" v-for="item in items" :key="item.id">
-									<div class="product-image-thumbs m-0" @click="orderItem(item)">
-										<div class="product-image-thumbs p-0" style="margin: 0 auto;">
-											<img v-bind:src="'img/food/' + item.photo"  alt="food" class="img-size-64">
-										</div>
-									</div>
-									<div class="text-center">
-										<strong>{{ item.name_kh }}</strong><br>
-										<label class="badge badge-danger">{{ item.price }}</label>
-									</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" @keyup="search_product($event.target.value)" placeholder="Search Product" aria-label="Search Product" aria-describedby="basic-addon2">
+								<div class="input-group-append">
+									<button class="btn btn-primary" @click="addCategory()" type="button"><i class="fa fa-plus"></i></button>
 								</div>
 							</div>
 						</div>
 					</div>
+			
+					<div class="row">
+						<div class="col-sm-2 image" v-for="item in items" :key="item.id">
+							<div class="card-image-bg">
+								<div class="product-image-thumbs mt-1" @click="orderItem(item)">
+									<div class="product-image-thumbs p-0" style="margin: 0 auto;">
+										<img v-bind:src="'img/food/' + item.photo"  alt="food" class="img-size-64">
+									</div>
+								</div>
+								<div class="text-center">
+									<strong>{{ item.name_kh }}</strong><br>
+								</div>
+								<div class="ribbon-wrapper">
+									<div class="ribbon bg-danger">
+										<strong>{{ item.price }}៛</strong><br>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
 				</div>
 			</div>
 			<div class="modal fade" tabindex='-1' role="dialog" id="order_model">
@@ -170,59 +176,31 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="modal fade" id="modal-category">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <form @submit.prevent="createCategory" @change="form.onKeydow($event)" role="form" method="post">
-                        <div class="modal-header">
-                        <h4 class="modal-title">បញ្ចូលព័ត៌មានថ្ម</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                
-                                <label for="name">ឈ្មោះអង្គគ្លេស</label>
-                                <input type="text" class="form-control" v-model="form.name" name="name" id="name" placeholder="ឈ្មោះអង្គគ្លេស" autocomplete="name" autofocus required>
-                            </div>
-
-                            <div class="form-group">
-                                
-                                <label for="name_kh">ឈ្មោះខ្មែរ</label>
-                                <input type="text" class="form-control" v-model="form.name_kh" name="name_kh" id="name_kh" placeholder="ឈ្មោះខ្មែរ" autocomplete="name_kh" required>
-                            </div>
-
-                            <div class="form-group">
-                                
-                                <label for="dsc">បរិយាយ</label>
-                                <input type="text" class="form-control" id="dsc" name="dsc" v-model="form.dsc" placeholder="បរិយាយ" autocomplete="dsc"  >
-                            </div>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times"> &nbsp;</i>បោះបង់</button>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"> &nbsp;</i>រក្សាទុក</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-        </div>
-		
+		<form-customer :form="form"></form-customer>
+		<form-category :form="form"></form-category>
+		<form-table :form="form"></form-table>
 	</div>
 </div>
   
 
 </template>
 <script>
+import FormCustomer from './FormComponents/FormCustomer';
+import FormCategory from './FormComponents/FormCategory';
+import FormTable from './FormComponents/FormTable';
 export default {
+		components : {
+			'form-customer' : FormCustomer,
+			'form-category' : FormCategory,
+			'form-table' : FormTable,
+		},
         props:['orders'],
         data(){
           return{
+			methods:false,
             category:"__all",
             table:"1",
+			tables: {},
 			customers: {},
 			customer: {
 				id:'0'
@@ -244,10 +222,12 @@ export default {
            	this.getItems(this.category);
 			this.category_json();
 			this.customer_json();
+			this.table_json();
 
 			Fire.$on('onCreated', (page=1)=>{
 				this.category_json(page);
 				this.customer_json();
+				this.table_json();
 			});
         },
         methods:{
@@ -280,6 +260,12 @@ export default {
 				axios.get('/json-customer-rows')
 					.then(res => {
 						this.customers = res.data;
+					});
+			},
+			table_json(){
+				axios.get('/json-table-rows')
+					.then(res => {
+						this.tables = res.data;
 					});
 			},
 			orderItem(value){
@@ -344,9 +330,10 @@ export default {
 					TotalPay : this.TotalPay,
 					CashIn : this.CashIn,
 					orders : this.itemOrder,
-					table : this.table,
+					table : this.table.id,
 					customer : this.customer.id,
 				});
+				
 				this.form.post('/save').then(res =>{
 					this.itemOrder = [];
 					this.Total = 0;
@@ -359,14 +346,6 @@ export default {
                 this.form.reset();
 				$('#modal-category').modal('show');
 			},
-			
-			createCategory(){
-                this.form.post('/category')
-                    .then(res =>{
-						Fire.$emit('onCreated', 1);
-                        $('#modal-category').modal('hide');
-                    }).catch(error => console.log(error)); 
-            },
 
 			addCustomer(){
 				this.method = false;
@@ -374,13 +353,12 @@ export default {
 				$('#modal-customer').modal('show');
 			},
 
-			createCustomer(){
-				this.form.post('/customer').then(res =>{
-					Fire.$emit('onCreated', 1);
-					$('#modal-customer').modal('hide');
+			addTable(){
+                this.method = false;
+                this.form.reset();
+                $('#modal-table').modal('show');
+            },
 
-				}).catch(error => console.log(error)); 
-			},
         },
 		watch: {
 			category: function(value){
@@ -419,11 +397,51 @@ export default {
 .image{
 	margin-right:-24px;
 }
-.card{
-	min-height: 150% !important;
+.table-card{
+	min-height: 600px !important;
+	border-radius: 0 !important;
 }
 
-.input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+.card-image-bg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+.text-total{
+    justify-content: space-between;
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+}
+.btn-payment {
+    display: block;
+    font-weight: 800;
+    color: #ffff;
+    text-align: center;
+    width: 100%;
+    border: 1px solid transparent;
+    padding: 1rem 0.75rem;
+    font-size: 1.04rem;
+    line-height: 1.5;
+}
+.btn-payment:hover {
+    color: #ffff;
+}
+.pay-footer {
+    padding: 1px;
+    background-color: rgba(0,0,0,.03);
+    border-top: 0 solid rgba(0,0,0,.125);
+}
+.card-footer {
+    padding: 0.75rem 0.75rem 0 1.25rem !important;
+}
+.input-group .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
     height: 98%;
 }
 </style>

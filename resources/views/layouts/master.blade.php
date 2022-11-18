@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title> {{config('app.name', 'CND')}} | @yield('title')</title>
+  <title> {{config('app.name', 'POS')}} | @yield('title')</title>
 
   
   <link rel="stylesheet" href="{{ asset('css/app.css')}}">
@@ -27,12 +27,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
 
@@ -146,11 +140,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">CND</span>
-    </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -175,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{ route('view.index')}}" class="nav-link @yield('view')">
               <i class="nav-icon fas fa-home"></i>
               <p>
-                ទំព័រដើម
+                  Sale Items
               </p>
             </a>
           </li>
@@ -183,7 +172,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{ route('customer.index')}}" class="nav-link @yield('customer')">
               <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>
-                  ព័ត៌មានអតិថិជន
+                  Customers
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('table.index')}}" class="nav-link @yield('table')">
+              <i class="nav-icon fas fa-chalkboard-teacher"></i>
+              <p>
+                  Tables
               </p>
             </a>
           </li>
@@ -191,7 +188,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link @yield('food.active')">
               <i class="nav-icon fas fa-coffee"></i>
               <p>
-              បញ្ជីមុខម្ហូប
+                  Products
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -199,13 +196,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="{{ route('category.index')}}" class="nav-link @yield('category')">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ប្រភេទមុខម្ហូប</p>
+                  <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('product.index')}}" class="nav-link @yield('product')">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>មុខម្ហូប</p>
+                  <p>Items</p>
                 </a>
               </li>
             </ul>
@@ -216,12 +213,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{ route('customer.index')}}" class="nav-link @yield('customer')">
               <i class="nav-icon fas fa-user"></i>
               <p>
-              ព័ត៌មានបុគ្គលិក
+                  Users
               </p>
             </a>
           </li>
 
-          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-header">Loging</li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
