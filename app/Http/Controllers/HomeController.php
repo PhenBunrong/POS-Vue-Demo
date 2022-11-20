@@ -29,11 +29,6 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         $cate = Category::select('id', \DB::raw('concat(name,"-",name_kh) as text'))->get();

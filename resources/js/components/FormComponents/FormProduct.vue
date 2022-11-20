@@ -1,7 +1,7 @@
 <template lang="">
     <div>
       <div class="modal fade" id="modal-product">
-                <div class="modal-dialog modal-xl">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content"> 
                     <form @submit.prevent="method ? editProduct() : createProduct()" @keydown="form.onKeydown($event)" role="form" method="post">
                         <div class="modal-header">
@@ -83,8 +83,8 @@
                     </form>
                 </div>
                 <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal-dialog -->
         </div>
     </div>
 </template>
@@ -142,18 +142,6 @@
                         Fire.$emit('onCreated', 1);
                     })
                     .catch(error => console.log(error)); 
-            },
-
-            editProduct(){
-
-                this.form.category = this.category.id;
-                this.form.put('product/' + this.form.id)
-                    .then(res =>{
-
-                        $('#modal-product').modal('hide');
-                        Fire.$emit('onCreated', this.product.current_page);
-                    })
-                    .catch(error => console.log(error));
             },
 
             chooseImage(){

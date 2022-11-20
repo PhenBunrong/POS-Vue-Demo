@@ -123,15 +123,12 @@
                                   
                                         <div class="form-group col-sm-6">
                                             <label for="category">ប្រភេទហារ</label>
-                                            <multiselect 
-                                                :class="{ 'is-invalid' : form.errors.has('category') }"
-                                                v-model="selected"
-                                                :options="category"
-                                                :custom-label="CategoryLabel"
-                                                :searchable="false">
-                                                <option value="" disabled>-- ជ្រើសរើសប្រភេទ --</option>
-                                            </multiselect>
-                                            <has-error :form="form" field="category"></has-error>
+                                            <div class="input-group mb-3">
+                                                <select2  v-model="category.id" :class="{ 'is-invalid' : form.errors.has('category')}">
+                                                    <option v-for="(x,index) in categories" :key="index" :value="x.id">{{x.text}}</option>
+                                                </select2>
+                                                <has-error :form="form" field="category"></has-error>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -165,26 +162,6 @@
                                     </div>
                                 </div>
                             </div>
-                              
-
-                                        <!-- <div class="form-group">
-                                        <label for="exampleInputFile" >រូបភាព</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" @change="onImageChange" class="custom-file-input" name="photo" id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">ជ្រើសរើសរូបភាព</label>
-                                            </div>
-                                        </div>
-                                        </div> -->
-
-                                        <!-- <label v-show="form.errors.has('name')" for="name" class="col-form-label text-danger">
-                                               <strong v-for="error,index in form.errors.errors.name" :key="index">
-                                                   <i class="far fa-times-circle"></i>{{ error }}
-                                               </strong>
-                                            </label> -->
-
-                                        
-                      
                         </div>
 
                         <div class="modal-footer justify-content-between">
@@ -202,7 +179,7 @@
 <script>
     import bsCustomFileInput from 'bs-custom-file-input';
     export default {
-        props:['category'],
+        // props:['category'],
         data(){
             return{
                 selected: {
@@ -213,15 +190,17 @@
                 action: false,
                 methods:false,
                 product: {},
+                categories: {},
+                category:{
+                    id:1,
+                },
                 form: new Form({
                     id:"",
                     name:"",
                     name_kh:"",
                     price:"",
                     dsc:"",
-                    photo:"",
-                    category:"",
-                    
+                    photo:"", 
                 })
             }
 
@@ -230,6 +209,7 @@
         mounted(){
             this.getProduct();
             this.chooseImage();
+            this.category_json();
 
             Fire.$on('onCreated', (page=1)=>{
                 this.getProduct(page);
@@ -237,13 +217,21 @@
         }, //end mounted
 
         methods: {
+            category_json(page = 1) {
+                axios.get('/json/category/rows/?page=' + page)
+                    .then(res => {
+                        this.categories = res.data;
+                        //console.log(res.data);
+                    })
+                    .catch(error => console.log(error));
+            },
             newProduct(){
                 this.method = false;
                 this.action = false;
 
-                this.selected.id= "";
-                this.selected.name= "";
-                this.selected.name_kh= "";
+                // this.selected.id= "";
+                // this.selected.name= "";
+                // this.selected.name_kh= "";
 
                 this.form.reset();
                 $('#modal-product').modal('show');
@@ -257,17 +245,16 @@
                 this.form.reset();
                 this.form.fill(pro);
 
-                let find = this.category.find(({id}) => id === pro.category);
+                let find = this.categories.find(({id}) => id === pro.category);
 
-                this.selected.id= find.id;
-                this.selected.name= find.name;
-                this.selected.name_kh= find.name_kh;
+                this.category.id = find.id;
+                // this.selected.name= find.name;
+                // this.selected.name_kh= find.name_kh;
                 $('#modal-product').modal('show');
             },
 
             createProduct(){
-
-                this.form.category = this.selected.id;
+                this.form.category = this.category.id;
                 this.form.post('/product')
                     .then(res =>{
 
@@ -278,8 +265,7 @@
             },
 
             editProduct(){
-
-                this.form.category = this.selected.id;
+                this.form.category = this.category.id;
                 this.form.put('product/' + this.form.id)
                     .then(res =>{
 
@@ -323,43 +309,38 @@
             }, 
             
             deleteProduct(id){
-                /* if(confirm('Are you sure ?')){
-                    this.form.delete('customer/' + id)
-                        .then(() => {
-                            Fire.$emit('onCreated', this.product.current_page);
-                        })
-                        .catch(error => console.log(error)); 
-                    }*/
+                Vue.swal({
+                        title: 'តើអ្នកប្រាកដឬទេ?',
+                        text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'យល់ព្រម'
+                        }).then((result) => {
+                        if (result.value) {
 
-                    Vue.swal({
-                            title: 'តើអ្នកប្រាកដឬទេ?',
-                            text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'យល់ព្រម'
-                            }).then((result) => {
-                            if (result.value) {
-
-                                this.form.delete('product/' + id)
-                                    .then(() => {
-                                        Vue.swal(
-                                                'Deleted!',
-                                                'Your file has been deleted.',
-                                                'success'
-                                                );
-                                        Fire.$emit('onCreated', this.product.current_page);
-                                    }).catch(error => console.log(error)); 
-                            }
-                            })
-               
+                            this.form.delete('product/' + id)
+                                .then(() => {
+                                    Vue.swal(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                            );
+                                    Fire.$emit('onCreated', this.product.current_page);
+                                }).catch(error => console.log(error)); 
+                        }
+                    });
+            
             }
         }//end method 
     }
 </script>
 
 <style scoped>
+    .input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file {
+        display: none !important;
+    }
     .products-list .product-title {
         font-weight: bold;
         font-size: 14px;

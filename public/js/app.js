@@ -2892,22 +2892,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return console.log(error);
       });
     },
-    editProduct: function editProduct() {
-      var _this3 = this;
-
-      this.form.category = this.category.id;
-      this.form.put('product/' + this.form.id).then(function (res) {
-        $('#modal-product').modal('hide');
-        Fire.$emit('onCreated', _this3.product.current_page);
-      })["catch"](function (error) {
-        return console.log(error);
-      });
-    },
     chooseImage: function chooseImage() {
       bs_custom_file_input__WEBPACK_IMPORTED_MODULE_0___default.a.init();
     },
     onImageChange: function onImageChange(event) {
-      var _this4 = this;
+      var _this3 = this;
 
       var files = event.target.files;
       if (!files.length) return;
@@ -2915,7 +2904,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var reader = new FileReader();
 
       reader.onload = function (file) {
-        _this4.form.photo = file.target.result;
+        _this3.form.photo = file.target.result;
       };
 
       reader.readAsDataURL(files[0]);
@@ -3597,32 +3586,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['category'],
+  // props:['category'],
   data: function data() {
     return {
       selected: {
@@ -3633,14 +3599,17 @@ __webpack_require__.r(__webpack_exports__);
       action: false,
       methods: false,
       product: {},
+      categories: {},
+      category: {
+        id: 1
+      },
       form: new Form({
         id: "",
         name: "",
         name_kh: "",
         price: "",
         dsc: "",
-        photo: "",
-        category: ""
+        photo: ""
       })
     };
   },
@@ -3650,6 +3619,7 @@ __webpack_require__.r(__webpack_exports__);
 
     this.getProduct();
     this.chooseImage();
+    this.category_json();
     Fire.$on('onCreated', function () {
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
@@ -3658,12 +3628,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   //end mounted
   methods: {
+    category_json: function category_json() {
+      var _this2 = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('/json/category/rows/?page=' + page).then(function (res) {
+        _this2.categories = res.data; //console.log(res.data);
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
     newProduct: function newProduct() {
       this.method = false;
-      this.action = false;
-      this.selected.id = "";
-      this.selected.name = "";
-      this.selected.name_kh = "";
+      this.action = false; // this.selected.id= "";
+      // this.selected.name= "";
+      // this.selected.name_kh= "";
+
       this.form.reset();
       $('#modal-product').modal('show');
     },
@@ -3672,17 +3652,17 @@ __webpack_require__.r(__webpack_exports__);
       this.action = true;
       this.form.reset();
       this.form.fill(pro);
-      var find = this.category.find(function (_ref) {
+      var find = this.categories.find(function (_ref) {
         var id = _ref.id;
         return id === pro.category;
       });
-      this.selected.id = find.id;
-      this.selected.name = find.name;
-      this.selected.name_kh = find.name_kh;
+      this.category.id = find.id; // this.selected.name= find.name;
+      // this.selected.name_kh= find.name_kh;
+
       $('#modal-product').modal('show');
     },
     createProduct: function createProduct() {
-      this.form.category = this.selected.id;
+      this.form.category = this.category.id;
       this.form.post('/product').then(function (res) {
         $('#modal-product').modal('hide');
         Fire.$emit('onCreated', 1);
@@ -3691,12 +3671,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     editProduct: function editProduct() {
-      var _this2 = this;
+      var _this3 = this;
 
-      this.form.category = this.selected.id;
+      this.form.category = this.category.id;
       this.form.put('product/' + this.form.id).then(function (res) {
         $('#modal-product').modal('hide');
-        Fire.$emit('onCreated', _this2.product.current_page);
+        Fire.$emit('onCreated', _this3.product.current_page);
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -3705,7 +3685,7 @@ __webpack_require__.r(__webpack_exports__);
       bs_custom_file_input__WEBPACK_IMPORTED_MODULE_0___default.a.init();
     },
     onImageChange: function onImageChange(event) {
-      var _this3 = this;
+      var _this4 = this;
 
       var files = event.target.files;
       if (!files.length) return;
@@ -3713,7 +3693,7 @@ __webpack_require__.r(__webpack_exports__);
       var reader = new FileReader();
 
       reader.onload = function (file) {
-        _this3.form.photo = file.target.result;
+        _this4.form.photo = file.target.result;
       };
 
       reader.readAsDataURL(files[0]);
@@ -3727,25 +3707,18 @@ __webpack_require__.r(__webpack_exports__);
       $('#photo').trigger('click');
     },
     getProduct: function getProduct() {
-      var _this4 = this;
+      var _this5 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get('/product/get/all?page=' + page).then(function (res) {
-        _this4.product = res.data; //console.log(res.data);
+        _this5.product = res.data; //console.log(res.data);
       })["catch"](function (error) {
         return console.log(error);
       });
     },
     deleteProduct: function deleteProduct(id) {
-      var _this5 = this;
+      var _this6 = this;
 
-      /* if(confirm('Are you sure ?')){
-          this.form.delete('customer/' + id)
-              .then(() => {
-                  Fire.$emit('onCreated', this.product.current_page);
-              })
-              .catch(error => console.log(error)); 
-          }*/
       Vue.swal({
         title: 'តើអ្នកប្រាកដឬទេ?',
         text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
@@ -3756,9 +3729,9 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'យល់ព្រម'
       }).then(function (result) {
         if (result.value) {
-          _this5.form["delete"]('product/' + id).then(function () {
+          _this6.form["delete"]('product/' + id).then(function () {
             Vue.swal('Deleted!', 'Your file has been deleted.', 'success');
-            Fire.$emit('onCreated', _this5.product.current_page);
+            Fire.$emit('onCreated', _this6.product.current_page);
           })["catch"](function (error) {
             return console.log(error);
           });
@@ -8759,7 +8732,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.products-list .product-title[data-v-7e94e6d4] {\n    font-weight: bold;\n    font-size: 14px;\n}\n.products-list .product-description[data-v-7e94e6d4] {\n    color: #6c757d;\n    font-size: 11px;\n    display: block;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\na[data-v-7e94e6d4] {\n    color: #3490dc;\n    text-decoration: none;\n    background-color: transparent;\n}\n.products-list .product-img img[data-v-7e94e6d4] {\n    height: 50px;\n    width: 50px;\n}\n.modal-dialog[data-v-7e94e6d4] {\n    max-width: 1300px;\n    margin: 1.75rem auto;\n}\n.text-forn-12[data-v-7e94e6d4]{\n    font-size: 12px;\n}\n.text-forn-14[data-v-7e94e6d4]{\n    font-size: 14px;\n}\n.min--hight[data-v-7e94e6d4]{\n    min-height: 260px;\n}\n.btn-info[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n    box-shadow: none;\n}\n.btn-danger[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n    box-shadow: none;\n}\n.btn-primary[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n    box-shadow: none;\n}\n.btn-info[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #0d6775;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-danger[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #8b1521;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-primary[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #115fb3;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n#vali-photo[data-v-7e94e6d4]{\n    display: inline;\n}\n\n", ""]);
+exports.push([module.i, "\n.input-group > .form-control[data-v-7e94e6d4], .input-group > .form-control-plaintext[data-v-7e94e6d4], .input-group > .custom-select[data-v-7e94e6d4], .input-group > .custom-file[data-v-7e94e6d4] {\n    display: none !important;\n}\n.products-list .product-title[data-v-7e94e6d4] {\n    font-weight: bold;\n    font-size: 14px;\n}\n.products-list .product-description[data-v-7e94e6d4] {\n    color: #6c757d;\n    font-size: 11px;\n    display: block;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\na[data-v-7e94e6d4] {\n    color: #3490dc;\n    text-decoration: none;\n    background-color: transparent;\n}\n.products-list .product-img img[data-v-7e94e6d4] {\n    height: 50px;\n    width: 50px;\n}\n.modal-dialog[data-v-7e94e6d4] {\n    max-width: 1300px;\n    margin: 1.75rem auto;\n}\n.text-forn-12[data-v-7e94e6d4]{\n    font-size: 12px;\n}\n.text-forn-14[data-v-7e94e6d4]{\n    font-size: 14px;\n}\n.min--hight[data-v-7e94e6d4]{\n    min-height: 260px;\n}\n.btn-info[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n    box-shadow: none;\n}\n.btn-danger[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n    box-shadow: none;\n}\n.btn-primary[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n    box-shadow: none;\n}\n.btn-info[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #0d6775;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-danger[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #8b1521;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-primary[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #115fb3;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n#vali-photo[data-v-7e94e6d4]{\n    display: inline;\n}\n\n", ""]);
 
 // exports
 
@@ -54796,48 +54769,46 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "form-group col-sm-6" },
-                        [
-                          _c("label", { attrs: { for: "category" } }, [
-                            _vm._v("ប្រភេទហារ")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "multiselect",
-                            {
-                              class: {
-                                "is-invalid": _vm.form.errors.has("category")
-                              },
-                              attrs: {
-                                options: _vm.category,
-                                "custom-label": _vm.CategoryLabel,
-                                searchable: false
-                              },
-                              model: {
-                                value: _vm.selected,
-                                callback: function($$v) {
-                                  _vm.selected = $$v
+                      _c("div", { staticClass: "form-group col-sm-6" }, [
+                        _c("label", { attrs: { for: "category" } }, [
+                          _vm._v("ប្រភេទហារ")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "input-group mb-3" },
+                          [
+                            _c(
+                              "select2",
+                              {
+                                class: {
+                                  "is-invalid": _vm.form.errors.has("category")
                                 },
-                                expression: "selected"
-                              }
-                            },
-                            [
-                              _c(
-                                "option",
-                                { attrs: { value: "", disabled: "" } },
-                                [_vm._v("-- ជ្រើសរើសប្រភេទ --")]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "category" }
-                          })
-                        ],
-                        1
-                      )
+                                model: {
+                                  value: _vm.category.id,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.category, "id", $$v)
+                                  },
+                                  expression: "category.id"
+                                }
+                              },
+                              _vm._l(_vm.categories, function(x, index) {
+                                return _c(
+                                  "option",
+                                  { key: index, domProps: { value: x.id } },
+                                  [_vm._v(_vm._s(x.text))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _c("has-error", {
+                              attrs: { form: _vm.form, field: "category" }
+                            })
+                          ],
+                          1
+                        )
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
