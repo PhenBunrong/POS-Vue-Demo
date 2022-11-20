@@ -50,7 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">{{config('app.name', 'POS')}}</span>
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -118,14 +118,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-header">Report List</li>
           <li class="nav-item">
             <a href="{{ route('export.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-arrow-circle-up"></i>
-              <p>Export</p>
+              <i class="nav-icon fas fa-arrow-circle-down"></i>
+              <p>Import</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('product.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-arrow-circle-down"></i>
-              <p>Import</p>
+            <a href="{{ route('export.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-arrow-circle-up"></i>
+              <p>Export</p>
             </a>
           </li>
           <li class="nav-item">
@@ -170,16 +170,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
   </aside>
   <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 </div>
 <!-- ./wrapper -->
 
