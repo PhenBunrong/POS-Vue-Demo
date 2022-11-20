@@ -199,7 +199,6 @@
                 <!-- /.modal-dialog -->
         </div>
     </div>
-
 </template>
 <script>
 import bsCustomFileInput from 'bs-custom-file-input';
@@ -333,28 +332,28 @@ import bsCustomFileInput from 'bs-custom-file-input';
                         .catch(error => console.log(error)); 
                     }*/
 
-                        Vue.swal({
-                                title: 'តើអ្នកប្រាកដឬទេ?',
-                                text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
-                                icon: 'warning',
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                                confirmButtonText: 'យល់ព្រម'
-                                }).then((result) => {
-                                if (result.value) {
+                    Vue.swal({
+                            title: 'តើអ្នកប្រាកដឬទេ?',
+                            text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'យល់ព្រម'
+                            }).then((result) => {
+                            if (result.value) {
 
-                                    this.form.delete('product/' + id)
-                                        .then(() => {
-                                            Vue.swal(
-                                                    'Deleted!',
-                                                    'Your file has been deleted.',
-                                                    'success'
-                                                    );
-                                            Fire.$emit('onCreated', this.product.current_page);
-                                        }).catch(error => console.log(error)); 
-                                }
-                                })
+                                this.form.delete('product/' + id)
+                                    .then(() => {
+                                        Vue.swal(
+                                                'Deleted!',
+                                                'Your file has been deleted.',
+                                                'success'
+                                                );
+                                        Fire.$emit('onCreated', this.product.current_page);
+                                    }).catch(error => console.log(error)); 
+                            }
+                            })
                
             }
         }//end method 
@@ -365,13 +364,13 @@ import bsCustomFileInput from 'bs-custom-file-input';
 
 <style scoped>
 .products-list .product-title {
-    font-weight: 700;
-    font-size: 17px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .products-list .product-description {
     color: #6c757d;
-    font-size: 15px;
+    font-size: 11px;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -384,8 +383,8 @@ a {
 }
 
 .products-list .product-img img {
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
 }
 .modal-dialog {
     max-width: 1300px;

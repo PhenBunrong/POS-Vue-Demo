@@ -24,6 +24,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/save', 'HomeController@save')->name('home.save');
+Route::get('/export-index', 'HomeController@exportIndex')->name('export.index');
+Route::get('/export-order/get/all', 'HomeController@exportOrder');
 
 Route::prefix('customer')->group(function(){
     Route::get('/', 'CustomerController@index')->name('customer.index');

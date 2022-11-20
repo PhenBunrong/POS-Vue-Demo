@@ -23,7 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper" id="app">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand navbar-white navbar-light">
+  <nav class="navbar navbar-expand navbar-dark bg-dark navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item d-none d-sm-inline-block">

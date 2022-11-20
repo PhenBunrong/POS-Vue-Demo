@@ -83,7 +83,7 @@ class HomeController extends Controller
             'TotalPay' => 'required|numeric|min:100',
             'CashIn' => 'required|numeric|min:100|gte:TotalPay',
         ]);
-        
+    
         $order = Order::create([
             'order_date' => now(),
             'table' => $request->table,
@@ -111,6 +111,31 @@ class HomeController extends Controller
         return response()->json($order);
     }
 
+    public function exportIndex(){
+
+        return view('Food.export');
+
+    }
+
+    public function exportOrder(Request $request){
+        
+        $orders = new Order();
+        
+        if($request->start_date){
+            $orders = $orders->where('created_at', '>=', $request->start_date);
+        }
+        if($request->end_date){
+            $orders = $orders->where('created_at', '<=', $request->end_date);
+        }
+
+        $orders  = $orders->with(['tables','customers','users'])->latest()->paginate(10);
+
+        $total = $orders->map(function ($i){
+            return $i->totalPay;
+        })->sum();
+        
+        return $orders;
+    }
 
     // private function product_order()
     // {

@@ -15,7 +15,7 @@
 					</div>
 					<div class="form-group">
 						<div class="input-group mb-3">
-							<select2  v-model="table.id" name="table">
+							<select2  v-model="table.id">
 								<option v-for="(x,index) in tables" :key="index" :value="x.id">{{x.name}}</option>
 							</select2>
 							<div class="input-group-append">
@@ -55,7 +55,7 @@
 											</div>
 										</th>
 										<th>{{x.price + '​ ៛'}}</th>
-										<th><i class="fa fa-trash"></i></th>
+										<th @click="orderRemove(x)"><i class="fa fa-trash"></i></th>
 									</tr>
 								</thead>
 							</table>
@@ -199,7 +199,9 @@ export default {
           return{
 			methods:false,
             category:"__all",
-            table:"1",
+            table:{
+				id:'1'
+			},
 			tables: {},
 			customers: {},
 			customer: {
@@ -307,6 +309,11 @@ export default {
 				// }
 			},
 
+			orderRemove(param){
+				this.Total -= (param.price * param.qty);
+				this.itemOrder = this.itemOrder.filter(it => it.id != param.id);
+			},
+
 			orderModal(){
 				this.TotalPay = this.Total - this.Discount;
 				this.CashIn = 0;
@@ -333,7 +340,6 @@ export default {
 					table : this.table.id,
 					customer : this.customer.id,
 				});
-				
 				this.form.post('/save').then(res =>{
 					this.itemOrder = [];
 					this.Total = 0;
@@ -381,67 +387,67 @@ export default {
 
 
 <style scoped>
-.img-size-64 {
-    width: 110px;
-	height: 110px;
-}
-.img-size-20 {
-    width: 40px;
-    height: 40px;
-}
-.text-center {
-    text-align: center !important;
-	font-size: 12px;
-	margin: 10px;
-}
-.image{
-	margin-right:-24px;
-}
-.table-card{
-	min-height: 600px !important;
-	border-radius: 0 !important;
-}
+	.img-size-64 {
+		width: 110px;
+		height: 110px;
+	}
+	.img-size-20 {
+		width: 40px;
+		height: 40px;
+	}
+	.text-center {
+		text-align: center !important;
+		font-size: 12px;
+		margin: 10px;
+	}
+	.image{
+		margin-right:-24px;
+	}
+	.table-card{
+		min-height: 600px !important;
+		border-radius: 0 !important;
+	}
 
-.card-image-bg {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-}
-.text-total{
-    justify-content: space-between;
-    display: flex;
-    font-size: 20px;
-    font-weight: bold;
-}
-.btn-payment {
-    display: block;
-    font-weight: 800;
-    color: #ffff;
-    text-align: center;
-    width: 100%;
-    border: 1px solid transparent;
-    padding: 1rem 0.75rem;
-    font-size: 1.04rem;
-    line-height: 1.5;
-}
-.btn-payment:hover {
-    color: #ffff;
-}
-.pay-footer {
-    padding: 1px;
-    background-color: rgba(0,0,0,.03);
-    border-top: 0 solid rgba(0,0,0,.125);
-}
-.card-footer {
-    padding: 0.75rem 0.75rem 0 1.25rem !important;
-}
-.input-group .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
-    height: 98%;
-}
+	.card-image-bg {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		word-wrap: break-word;
+		background-color: #fff;
+		background-clip: border-box;
+		border: 1px solid rgba(0, 0, 0, 0.125);
+		border-radius: 0.25rem;
+	}
+	.text-total{
+		justify-content: space-between;
+		display: flex;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.btn-payment {
+		display: block;
+		font-weight: 800;
+		color: #ffff;
+		text-align: center;
+		width: 100%;
+		border: 1px solid transparent;
+		padding: 1rem 0.75rem;
+		font-size: 1.04rem;
+		line-height: 1.5;
+	}
+	.btn-payment:hover {
+		color: #ffff;
+	}
+	.pay-footer {
+		padding: 1px;
+		background-color: rgba(0,0,0,.03);
+		border-top: 0 solid rgba(0,0,0,.125);
+	}
+	.card-footer {
+		padding: 0.75rem 0.75rem 0 1.25rem !important;
+	}
+	.input-group .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+		height: 98%;
+	}
 </style>

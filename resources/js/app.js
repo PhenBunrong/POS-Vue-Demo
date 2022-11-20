@@ -48,6 +48,8 @@ Vue.component('product', require('./components/Product.vue').default);
 
 Vue.component('tableForm', require('./components/Table.vue').default);
 
+Vue.component('exportComponent', require('./components/Export.vue').default);
+
 Vue.component('home', require('./components/Home.vue').default);
 
 Vue.component('select2', require('./components/tools/Select2.vue').default);
