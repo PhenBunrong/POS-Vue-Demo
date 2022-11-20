@@ -8676,7 +8676,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.btn-info[data-v-4fd97649] {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n    box-shadow: none;\n}\n.btn-danger[data-v-4fd97649] {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n    box-shadow: none;\n}\n.btn-primary[data-v-4fd97649] {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n    box-shadow: none;\n}\n.btn-info[data-v-4fd97649]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #0d6775;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-danger[data-v-4fd97649]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #8b1521;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-primary[data-v-4fd97649]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #115fb3;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.btn-info[data-v-4fd97649] {\r\n    color: #fff;\r\n    background-color: #17a2b8;\r\n    border-color: #17a2b8;\r\n    box-shadow: none;\n}\n.btn-danger[data-v-4fd97649] {\r\n    color: #fff;\r\n    background-color: #dc3545;\r\n    border-color: #dc3545;\r\n    box-shadow: none;\n}\n.btn-primary[data-v-4fd97649] {\r\n    color: #fff;\r\n    background-color: #007bff;\r\n    border-color: #007bff;\r\n    box-shadow: none;\n}\n.btn-info[data-v-4fd97649]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #0d6775;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-danger[data-v-4fd97649]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #8b1521;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-primary[data-v-4fd97649]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #115fb3;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -51966,7 +51966,7 @@ var render = function() {
                       [
                         _c("i", { staticClass: "fas fa-plus-circle" }),
                         _vm._v(
-                          "\n                                                បញ្ចូលព័ត៌មានថ្ម\n                                            "
+                          "\r\n                                                បញ្ចូលព័ត៌មានថ្ម\r\n                                            "
                         )
                       ]
                     )
@@ -52045,7 +52045,7 @@ var render = function() {
                                       staticClass: "fas fa-pencil-alt"
                                     }),
                                     _vm._v(
-                                      "\n                                                កែប្រែ\n                                            "
+                                      "\r\n                                                កែប្រែ\r\n                                            "
                                     )
                                   ]
                                 ),
@@ -52063,7 +52063,7 @@ var render = function() {
                                   [
                                     _c("i", { staticClass: "fas fa-trash" }),
                                     _vm._v(
-                                      "\n                                                លុប\n                                            "
+                                      "\r\n                                                លុប\r\n                                            "
                                     )
                                   ]
                                 )
@@ -52349,7 +52349,7 @@ var staticRenderFns = [
     return _c("a", { staticClass: "btn btn-primary btn-sm" }, [
       _c("i", { staticClass: "fas fa-folder" }),
       _vm._v(
-        "\n                                                មើល\n                                            "
+        "\r\n                                                មើល\r\n                                            "
       )
     ])
   },
@@ -54419,7 +54419,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_c("i", { staticClass: "fas fa-save" }), _vm._v(" រក្សាទុក")]
+        [_c("i", { staticClass: "fas fa-save" }), _vm._v("  រក្សាទុក")]
       )
     ])
   }
