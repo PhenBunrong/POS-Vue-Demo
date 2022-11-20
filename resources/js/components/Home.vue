@@ -168,9 +168,10 @@
 								<input type="number" v-model="Change" class="form-control font-size-order" id="change" placeholder="Change" disabled>
 							</div>
 						</div>
-						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary"><i class="fas fa-save mr-1"></i>Save</button>
-						</div>
+						<div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times"> &nbsp;</i>បោះបង់</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> រក្សាទុក</button>
+                        </div>
 					</form>
 				</div>
 				</div>

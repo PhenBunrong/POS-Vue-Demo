@@ -14,6 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   
   <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 
   <!-- Google Font: Source Sans Pro -->
   <style>

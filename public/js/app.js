@@ -3180,6 +3180,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -54402,11 +54403,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
+    return _c("div", { staticClass: "modal-footer justify-content-between" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [
+          _c("i", { staticClass: "fas fa-times" }, [_vm._v("  ")]),
+          _vm._v("បោះបង់")
+        ]
+      ),
+      _vm._v(" "),
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_c("i", { staticClass: "fas fa-save mr-1" }), _vm._v("Save")]
+        [_c("i", { staticClass: "fas fa-save" }), _vm._v(" រក្សាទុក")]
       )
     ])
   }
