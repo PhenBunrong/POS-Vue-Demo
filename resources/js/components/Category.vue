@@ -1,12 +1,12 @@
 <template>
     <div>
-              <div class="content-wrapper">
+        <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">ព័ត៌មានប្រភេទមុខម្ហូប</h1>
+                    <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="m-0 text-dark text-center">Categories</h1>
                     </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -17,68 +17,55 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <a class="btn btn-primary btn-sm" @click="newCategory">
-                                        <i class="fas fa-plus-circle"></i>
-                                        បញ្ចូលព័ត៌មានថ្ម
-                                    </a>
-                                </div>
+                        <div class="col-lg-12">
+                            <div class="mb-2">
+                                <a class="btn btn-primary btn-circle" @click="newCategory">
+                                    <i class="fas fa-plus-circle"></i>
+                                </a>
+                            </div>
+                            <div class="card">
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                        <th>លេខ</th>
+                                        <th>ឈ្មោះប្រភេទម្ហូបអាហារ</th>
+                                        <th>បរិយាយ</th>
+                                        <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="cus in category.data" :key="category.id">
+                                            <td>{{ cus.id }}</td>
+                                            <td>{{ cus.name + " - " + cus.name_kh }}</td>
+                                            <td>{{ cus.dsc }}</td>
+                                            <td class="project-actions text-right">
+                                                    <a class="btn btn-primary btn-sm">
+                                                        <i class="fas fa-folder">
+                                                        </i>
+                                                        មើល
+                                                    </a>
+                                                    <a class="btn btn-info btn-sm" @click="infoCategory(cus)">
+                                                        <i class="fas fa-pencil-alt">
+                                                        </i>
+                                                        កែប្រែ
+                                                    </a>
+                                                    <a class="btn btn-danger btn-sm" @click="deleteCategory(cus.id)">
+                                                        <i class="fas fa-trash">
+                                                        </i>
+                                                        លុប
+                                                    </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
 
-                                <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                    <div class="input-group-append">
-                                    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-search"></i></button>
-                                    </div>
+                                    </table>
                                 </div>
+                                <div class="card-footer">
+                                    <pagination :data="category" @pagination-change-page="getCategory" :limit="2" align="right"></pagination>
                                 </div>
                             </div>
-                            <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                    <th>លេខ</th>
-                                    <th>ឈ្មោះប្រភេទម្ហូបអាហារ</th>
-                                    <th>បរិយាយ</th>
-                                    <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="cus in category.data" :key="category.id">
-                                        <td>{{ cus.id }}</td>
-                                        <td>{{ cus.name + " - " + cus.name_kh }}</td>
-                                        <td>{{ cus.dsc }}</td>
-                                        <td class="project-actions text-right">
-                                                <a class="btn btn-primary btn-sm">
-                                                    <i class="fas fa-folder">
-                                                    </i>
-                                                    មើល
-                                                </a>
-                                                <a class="btn btn-info btn-sm" @click="infoCategory(cus)">
-                                                    <i class="fas fa-pencil-alt">
-                                                    </i>
-                                                    កែប្រែ
-                                                </a>
-                                                <a class="btn btn-danger btn-sm" @click="deleteCategory(cus.id)">
-                                                    <i class="fas fa-trash">
-                                                    </i>
-                                                    លុប
-                                                </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                                </table>
-                            </div>
-                            <div class="card-footer">
-                                <pagination :data="category" @pagination-change-page="getCategory" :limit="2" align="right"></pagination>
-                            </div>
-                        </div>
                         </div>
                         <!-- /.card-body -->
                         </div>
@@ -208,44 +195,40 @@
             }, 
             
             deleteCategory(id){
-                /* if(confirm('Are you sure ?')){
-                    this.form.delete('customer/' + id)
-                        .then(() => {
-                            Fire.$emit('onCreated', this.customers.current_page);
+                Vue.swal({
+                        title: 'តើអ្នកប្រាកដឬទេ?',
+                        text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'យល់ព្រម'
+                        }).then((result) => {
+                        if (result.value) {
+
+                            this.form.delete('category/' + id)
+                                .then(() => {
+                                    Vue.swal(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                            );
+                                    Fire.$emit('onCreated', this.category.current_page);
+                                }).catch(error => console.log(error)); 
+                        }
                         })
-                        .catch(error => console.log(error)); 
-                    }*/
-
-                        Vue.swal({
-                                title: 'តើអ្នកប្រាកដឬទេ?',
-                                text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
-                                icon: 'warning',
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                                confirmButtonText: 'យល់ព្រម'
-                                }).then((result) => {
-                                if (result.value) {
-
-                                    this.form.delete('category/' + id)
-                                        .then(() => {
-                                            Vue.swal(
-                                                    'Deleted!',
-                                                    'Your file has been deleted.',
-                                                    'success'
-                                                    );
-                                            Fire.$emit('onCreated', this.category.current_page);
-                                        }).catch(error => console.log(error)); 
-                                }
-                                })
-                        
-               
+                
+        
             }
         }//end method 
     }
 </script>
 
 <style scoped>
+.btn-circle{
+    font-size: 1.125rem;
+    border-radius: 50%;
+}
 .btn-info {
     color: #fff;
     background-color: #17a2b8;

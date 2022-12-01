@@ -2067,19 +2067,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['token'],
   data: function data() {
@@ -2153,13 +2140,6 @@ __webpack_require__.r(__webpack_exports__);
     deleteCategory: function deleteCategory(id) {
       var _this4 = this;
 
-      /* if(confirm('Are you sure ?')){
-          this.form.delete('customer/' + id)
-              .then(() => {
-                  Fire.$emit('onCreated', this.customers.current_page);
-              })
-              .catch(error => console.log(error)); 
-          }*/
       Vue.swal({
         title: 'តើអ្នកប្រាកដឬទេ?',
         text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
@@ -2410,13 +2390,6 @@ __webpack_require__.r(__webpack_exports__);
     deleteCustomer: function deleteCustomer(id) {
       var _this4 = this;
 
-      /* if(confirm('Are you sure ?')){
-          this.form.delete('customer/' + id)
-              .then(() => {
-                  Fire.$emit('onCreated', this.customers.current_page);
-              })
-              .catch(error => console.log(error)); 
-          }*/
       Vue.swal({
         title: 'តើអ្នកប្រាកដឬទេ?',
         text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
@@ -8657,7 +8630,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.btn-info[data-v-33972369] {\r\n    color: #fff;\r\n    background-color: #17a2b8;\r\n    border-color: #17a2b8;\r\n    box-shadow: none;\n}\n.btn-danger[data-v-33972369] {\r\n    color: #fff;\r\n    background-color: #dc3545;\r\n    border-color: #dc3545;\r\n    box-shadow: none;\n}\n.btn-primary[data-v-33972369] {\r\n    color: #fff;\r\n    background-color: #007bff;\r\n    border-color: #007bff;\r\n    box-shadow: none;\n}\n.btn-info[data-v-33972369]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #0d6775;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-danger[data-v-33972369]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #8b1521;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-primary[data-v-33972369]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #115fb3;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.btn-circle[data-v-33972369]{\r\n    font-size: 1.125rem;\r\n    border-radius: 50%;\n}\n.btn-info[data-v-33972369] {\r\n    color: #fff;\r\n    background-color: #17a2b8;\r\n    border-color: #17a2b8;\r\n    box-shadow: none;\n}\n.btn-danger[data-v-33972369] {\r\n    color: #fff;\r\n    background-color: #dc3545;\r\n    border-color: #dc3545;\r\n    box-shadow: none;\n}\n.btn-primary[data-v-33972369] {\r\n    color: #fff;\r\n    background-color: #007bff;\r\n    border-color: #007bff;\r\n    box-shadow: none;\n}\n.btn-info[data-v-33972369]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #0d6775;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-danger[data-v-33972369]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #8b1521;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-primary[data-v-33972369]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #115fb3;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -51560,33 +51533,24 @@ var render = function() {
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "mb-2" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary btn-circle",
+                    on: { click: _vm.newCategory }
+                  },
+                  [_c("i", { staticClass: "fas fa-plus-circle" })]
+                )
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("div", { staticClass: "card-title" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary btn-sm",
-                        on: { click: _vm.newCategory }
-                      },
-                      [
-                        _c("i", { staticClass: "fas fa-plus-circle" }),
-                        _vm._v(
-                          "\n                                    បញ្ចូលព័ត៌មានថ្ម\n                                "
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]),
-                _vm._v(" "),
                 _c("div", { staticClass: "card-body table-responsive p-0" }, [
                   _c(
                     "table",
                     { staticClass: "table table-hover text-nowrap" },
                     [
-                      _vm._m(2),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -51604,7 +51568,7 @@ var render = function() {
                               "td",
                               { staticClass: "project-actions text-right" },
                               [
-                                _vm._m(3, true),
+                                _vm._m(2, true),
                                 _vm._v(" "),
                                 _c(
                                   "a",
@@ -51621,7 +51585,7 @@ var render = function() {
                                       staticClass: "fas fa-pencil-alt"
                                     }),
                                     _vm._v(
-                                      "\n                                                កែប្រែ\n                                            "
+                                      "\n                                                    កែប្រែ\n                                                "
                                     )
                                   ]
                                 ),
@@ -51639,7 +51603,7 @@ var render = function() {
                                   [
                                     _c("i", { staticClass: "fas fa-trash" }),
                                     _vm._v(
-                                      "\n                                                លុប\n                                            "
+                                      "\n                                                    លុប\n                                                "
                                     )
                                   ]
                                 )
@@ -51686,7 +51650,7 @@ var render = function() {
               }
             },
             [
-              _vm._m(4),
+              _vm._m(3),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "form-group" }, [
@@ -51793,7 +51757,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(5)
+              _vm._m(4)
             ]
           )
         ])
@@ -51808,45 +51772,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content-header" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", { staticClass: "m-0 text-dark" }, [
-              _vm._v("ព័ត៌មានប្រភេទមុខម្ហូប")
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-12" }, [
+            _c("h1", { staticClass: "m-0 text-dark text-center" }, [
+              _vm._v("Categories")
             ])
           ])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-tools" }, [
-      _c(
-        "div",
-        {
-          staticClass: "input-group input-group-sm",
-          staticStyle: { width: "150px" }
-        },
-        [
-          _c("input", {
-            staticClass: "form-control float-right",
-            attrs: { type: "text", name: "table_search", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-primary",
-                attrs: { type: "submit" }
-              },
-              [_c("i", { staticClass: "fas fa-search" })]
-            )
-          ])
-        ]
-      )
     ])
   },
   function() {
@@ -51872,7 +51805,7 @@ var staticRenderFns = [
     return _c("a", { staticClass: "btn btn-primary btn-sm" }, [
       _c("i", { staticClass: "fas fa-folder" }),
       _vm._v(
-        "\n                                                មើល\n                                            "
+        "\n                                                    មើល\n                                                "
       )
     ])
   },
@@ -51966,7 +51899,7 @@ var render = function() {
                       [
                         _c("i", { staticClass: "fas fa-plus-circle" }),
                         _vm._v(
-                          "\r\n                                                បញ្ចូលព័ត៌មានថ្ម\r\n                                            "
+                          "\r\n                                        បញ្ចូលព័ត៌មានថ្ម\r\n                                    "
                         )
                       ]
                     )

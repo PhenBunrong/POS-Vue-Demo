@@ -4,13 +4,13 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">ព័ត៌មានអតិថិជន</h1>
-                </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">ព័ត៌មានអតិថិជន</h1>
+                    </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
 
@@ -18,48 +18,48 @@
             <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">
-                                            <a class="btn btn-primary btn-sm" @click="newCustomer">
-                                                <i class="fas fa-plus-circle"></i>
-                                                បញ្ចូលព័ត៌មានថ្ម
-                                            </a>
-                            </div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <a class="btn btn-primary btn-sm" @click="newCustomer">
+                                        <i class="fas fa-plus-circle"></i>
+                                        បញ្ចូលព័ត៌មានថ្ម
+                                    </a>
+                                </div>
 
-                            <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-                                <div class="input-group-append">
-                                <button type="submit" class="btn btn-outline-primary"><i class="fas fa-search"></i></button>
+                                    <div class="input-group-append">
+                                    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                            <thead>
-                                <tr>
-                                <th>លេខ</th>
-                                <th>ឈ្មោះអតិថិជន</th>
-                                <th>ភេទ</th>
-                                <th>លេខទូរស័ព្ទ</th>
-                                <th>អាស័យដ្ខាន</th>
-                                <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="cus in customers.data" :key="customers.id">
-                                    <td>{{ cus.id }}</td>
-                                    <td>{{ cus.name }}</td>
-                                    <td v-show="cus.gender==1">ប្រុស</td>
-                                    <td v-show="cus.gender==0">ស្រី</td>
-                                    <td>{{ cus.phone }}</td>
-                                    <td>{{ cus.address }}</td>
-                                    <td class="project-actions text-right">
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                <thead>
+                                    <tr>
+                                    <th>លេខ</th>
+                                    <th>ឈ្មោះអតិថិជន</th>
+                                    <th>ភេទ</th>
+                                    <th>លេខទូរស័ព្ទ</th>
+                                    <th>អាស័យដ្ខាន</th>
+                                    <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="cus in customers.data" :key="customers.id">
+                                        <td>{{ cus.id }}</td>
+                                        <td>{{ cus.name }}</td>
+                                        <td v-show="cus.gender==1">ប្រុស</td>
+                                        <td v-show="cus.gender==0">ស្រី</td>
+                                        <td>{{ cus.phone }}</td>
+                                        <td>{{ cus.address }}</td>
+                                        <td class="project-actions text-right">
                                             <a class="btn btn-primary btn-sm">
                                                 <i class="fas fa-folder">
                                                 </i>
@@ -75,22 +75,22 @@
                                                 </i>
                                                 លុប
                                             </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                            <div class="card-footer">
+                                <pagination :data="customers" @pagination-change-page="getCustomer" :limit="2" align="right"></pagination>
+                            </div>
                         </div>
-                        <div class="card-footer">
-                            <pagination :data="customers" @pagination-change-page="getCustomer" :limit="2" align="right"></pagination>
                         </div>
-                    </div>
-                    </div>
-                    <!-- /.card-body -->
-                    </div>
-            </div><!-- /.container-fluid -->
-            </div>
+                        <!-- /.card-body -->
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </div>
             <!-- /.content -->
-        </div>
+            </div>
 
         <div class="modal fade" id="modal-customer">
                 <div class="modal-dialog">
@@ -215,38 +215,28 @@
 
             
             deleteCustomer(id){
-                /* if(confirm('Are you sure ?')){
-                    this.form.delete('customer/' + id)
-                        .then(() => {
-                            Fire.$emit('onCreated', this.customers.current_page);
-                        })
-                        .catch(error => console.log(error)); 
-                    }*/
+                Vue.swal({
+                        title: 'តើអ្នកប្រាកដឬទេ?',
+                        text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'យល់ព្រម'
+                        }).then((result) => {
+                        if (result.value) {
 
-                        Vue.swal({
-                                title: 'តើអ្នកប្រាកដឬទេ?',
-                                text: "សូមលោកអ្នកជ្រើសរើសព្រម ឬបោះបង់",
-                                icon: 'warning',
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                                confirmButtonText: 'យល់ព្រម'
-                                }).then((result) => {
-                                if (result.value) {
-
-                                    this.form.delete('customer/' + id)
-                                        .then(() => {
-                                            Vue.swal(
-                                                    'Deleted!',
-                                                    'Your file has been deleted.',
-                                                    'success'
-                                                    );
-                                            Fire.$emit('onCreated', this.customers.current_page);
-                                        }).catch(error => console.log(error)); 
-                                }
-                                })
-                        
-               
+                            this.form.delete('customer/' + id)
+                                .then(() => {
+                                    Vue.swal(
+                                            'Deleted!',
+                                            'Your file has been deleted.',
+                                            'success'
+                                            );
+                                    Fire.$emit('onCreated', this.customers.current_page);
+                                }).catch(error => console.log(error)); 
+                        }
+                    })
             }
         }//end method 
     }

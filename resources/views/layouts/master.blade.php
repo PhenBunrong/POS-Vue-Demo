@@ -74,9 +74,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="{{ route('view.index')}}" class="nav-link @yield('view')">
-              <i class="nav-icon fas fa-tablet-alt"></i>
+              <i class="nav-icon fas fa-tv"></i>
               <p>
-                  Sales
+                  Sale
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('customer.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-user-tag"></i>
+              <p>
+                  Users
               </p>
             </a>
           </li>
@@ -116,6 +124,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('table.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                  Supplier
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Report List</li>
           <li class="nav-item">
             <a href="{{ route('export.index')}}" class="nav-link">
@@ -127,14 +143,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{ route('export.index')}}" class="nav-link">
               <i class="nav-icon fas fa-arrow-circle-up"></i>
               <p>Export</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('customer.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                  Users
-              </p>
             </a>
           </li>
           <li class="nav-header">Logout</li>
