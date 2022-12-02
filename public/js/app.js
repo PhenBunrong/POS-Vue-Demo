@@ -2303,20 +2303,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['token'],
   data: function data() {
@@ -3545,21 +3531,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   // props:['category'],
@@ -3727,20 +3698,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -8630,7 +8587,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.btn-circle[data-v-33972369]{\r\n    font-size: 1.125rem;\r\n    border-radius: 50%;\n}\n.btn-info[data-v-33972369] {\r\n    color: #fff;\r\n    background-color: #17a2b8;\r\n    border-color: #17a2b8;\r\n    box-shadow: none;\n}\n.btn-danger[data-v-33972369] {\r\n    color: #fff;\r\n    background-color: #dc3545;\r\n    border-color: #dc3545;\r\n    box-shadow: none;\n}\n.btn-primary[data-v-33972369] {\r\n    color: #fff;\r\n    background-color: #007bff;\r\n    border-color: #007bff;\r\n    box-shadow: none;\n}\n.btn-info[data-v-33972369]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #0d6775;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-danger[data-v-33972369]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #8b1521;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-primary[data-v-33972369]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #115fb3;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.btn-circle[data-v-33972369]{\n    font-size: 1.125rem;\n    border-radius: 50%;\n}\n.btn-info[data-v-33972369] {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n    box-shadow: none;\n}\n.btn-danger[data-v-33972369] {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n    box-shadow: none;\n}\n.btn-primary[data-v-33972369] {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n    box-shadow: none;\n}\n.btn-info[data-v-33972369]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #0d6775;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-danger[data-v-33972369]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #8b1521;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-primary[data-v-33972369]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #115fb3;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n\n\n", ""]);
 
 // exports
 
@@ -8649,7 +8606,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.btn-info[data-v-4fd97649] {\r\n    color: #fff;\r\n    background-color: #17a2b8;\r\n    border-color: #17a2b8;\r\n    box-shadow: none;\n}\n.btn-danger[data-v-4fd97649] {\r\n    color: #fff;\r\n    background-color: #dc3545;\r\n    border-color: #dc3545;\r\n    box-shadow: none;\n}\n.btn-primary[data-v-4fd97649] {\r\n    color: #fff;\r\n    background-color: #007bff;\r\n    border-color: #007bff;\r\n    box-shadow: none;\n}\n.btn-info[data-v-4fd97649]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #0d6775;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-danger[data-v-4fd97649]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #8b1521;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-primary[data-v-4fd97649]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #115fb3;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.btn-circle[data-v-4fd97649]{\n    font-size: 1.125rem;\n    border-radius: 50%;\n}\n.btn-info[data-v-4fd97649] {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n    box-shadow: none;\n}\n.btn-danger[data-v-4fd97649] {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n    box-shadow: none;\n}\n.btn-primary[data-v-4fd97649] {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n    box-shadow: none;\n}\n.btn-info[data-v-4fd97649]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #0d6775;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-danger[data-v-4fd97649]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #8b1521;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-primary[data-v-4fd97649]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #115fb3;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n\n\n", ""]);
 
 // exports
 
@@ -8706,7 +8663,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.input-group > .form-control[data-v-7e94e6d4], .input-group > .form-control-plaintext[data-v-7e94e6d4], .input-group > .custom-select[data-v-7e94e6d4], .input-group > .custom-file[data-v-7e94e6d4] {\n    display: none !important;\n}\n.products-list .product-title[data-v-7e94e6d4] {\n    font-weight: bold;\n    font-size: 14px;\n}\n.products-list .product-description[data-v-7e94e6d4] {\n    color: #6c757d;\n    font-size: 11px;\n    display: block;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\na[data-v-7e94e6d4] {\n    color: #3490dc;\n    text-decoration: none;\n    background-color: transparent;\n}\n.products-list .product-img img[data-v-7e94e6d4] {\n    height: 50px;\n    width: 50px;\n}\n.modal-dialog[data-v-7e94e6d4] {\n    max-width: 1300px;\n    margin: 1.75rem auto;\n}\n.text-forn-12[data-v-7e94e6d4]{\n    font-size: 12px;\n}\n.text-forn-14[data-v-7e94e6d4]{\n    font-size: 14px;\n}\n.min--hight[data-v-7e94e6d4]{\n    min-height: 260px;\n}\n.btn-info[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n    box-shadow: none;\n}\n.btn-danger[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n    box-shadow: none;\n}\n.btn-primary[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n    box-shadow: none;\n}\n.btn-info[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #0d6775;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-danger[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #8b1521;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-primary[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #115fb3;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n#vali-photo[data-v-7e94e6d4]{\n    display: inline;\n}\n\n", ""]);
+exports.push([module.i, "\n.btn-circle[data-v-7e94e6d4]{\n    font-size: 1.125rem;\n    border-radius: 50%;\n}\n.btn-info[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n    box-shadow: none;\n}\n.btn-danger[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n    box-shadow: none;\n}\n.btn-primary[data-v-7e94e6d4] {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n    box-shadow: none;\n}\n.btn-info[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #0d6775;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-danger[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #8b1521;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-primary[data-v-7e94e6d4]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #115fb3;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n\n\n", ""]);
 
 // exports
 
@@ -8725,7 +8682,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.btn-info[data-v-5bd01d73] {\r\n    color: #fff;\r\n    background-color: #17a2b8;\r\n    border-color: #17a2b8;\r\n    box-shadow: none;\n}\n.btn-danger[data-v-5bd01d73] {\r\n    color: #fff;\r\n    background-color: #dc3545;\r\n    border-color: #dc3545;\r\n    box-shadow: none;\n}\n.btn-primary[data-v-5bd01d73] {\r\n    color: #fff;\r\n    background-color: #007bff;\r\n    border-color: #007bff;\r\n    box-shadow: none;\n}\n.btn-info[data-v-5bd01d73]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #0d6775;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-danger[data-v-5bd01d73]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #8b1521;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\n.btn-primary[data-v-5bd01d73]:hover {\r\n    display: inline-block;\r\n    color: #fff;\r\n    font-weight: 400;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    cursor: pointer;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    background-color: #115fb3;\r\n    border: 1px solid transparent;\r\n        border-top-color: transparent;\r\n        border-right-color: transparent;\r\n        border-bottom-color: transparent;\r\n        border-left-color: transparent;\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.btn-circle[data-v-5bd01d73]{\n    font-size: 1.125rem;\n    border-radius: 50%;\n}\n.btn-info[data-v-5bd01d73] {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n    box-shadow: none;\n}\n.btn-danger[data-v-5bd01d73] {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n    box-shadow: none;\n}\n.btn-primary[data-v-5bd01d73] {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n    box-shadow: none;\n}\n.btn-info[data-v-5bd01d73]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #0d6775;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-danger[data-v-5bd01d73]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #8b1521;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n.btn-primary[data-v-5bd01d73]:hover {\n    display: inline-block;\n    color: #fff;\n    font-weight: 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background-color: #115fb3;\n    border: 1px solid transparent;\n        border-top-color: transparent;\n        border-right-color: transparent;\n        border-bottom-color: transparent;\n        border-left-color: transparent;\n}\n\n\n", ""]);
 
 // exports
 
@@ -51573,7 +51530,7 @@ var render = function() {
                                 _c(
                                   "a",
                                   {
-                                    staticClass: "btn btn-info btn-sm",
+                                    staticClass: "btn btn-default btn-sm",
                                     on: {
                                       click: function($event) {
                                         return _vm.infoCategory(cus)
@@ -51593,7 +51550,7 @@ var render = function() {
                                 _c(
                                   "a",
                                   {
-                                    staticClass: "btn btn-danger btn-sm",
+                                    staticClass: "btn btn-default btn-sm",
                                     on: {
                                       click: function($event) {
                                         return _vm.deleteCategory(cus.id)
@@ -51802,7 +51759,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "btn btn-primary btn-sm" }, [
+    return _c("a", { staticClass: "btn btn-default btn-sm" }, [
       _c("i", { staticClass: "fas fa-folder" }),
       _vm._v(
         "\n                                                    មើល\n                                                "
@@ -51887,33 +51844,24 @@ var render = function() {
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "mb-2" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary btn-circle",
+                    on: { click: _vm.newCustomer }
+                  },
+                  [_c("i", { staticClass: "fas fa-plus-circle" })]
+                )
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("div", { staticClass: "card-title" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary btn-sm",
-                        on: { click: _vm.newCustomer }
-                      },
-                      [
-                        _c("i", { staticClass: "fas fa-plus-circle" }),
-                        _vm._v(
-                          "\r\n                                        បញ្ចូលព័ត៌មានថ្ម\r\n                                    "
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]),
-                _vm._v(" "),
                 _c("div", { staticClass: "card-body table-responsive p-0" }, [
                   _c(
                     "table",
                     { staticClass: "table table-hover text-nowrap" },
                     [
-                      _vm._m(2),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -51961,7 +51909,7 @@ var render = function() {
                               "td",
                               { staticClass: "project-actions text-right" },
                               [
-                                _vm._m(3, true),
+                                _vm._m(2, true),
                                 _vm._v(" "),
                                 _c(
                                   "a",
@@ -51978,7 +51926,7 @@ var render = function() {
                                       staticClass: "fas fa-pencil-alt"
                                     }),
                                     _vm._v(
-                                      "\r\n                                                កែប្រែ\r\n                                            "
+                                      "\n                                                កែប្រែ\n                                            "
                                     )
                                   ]
                                 ),
@@ -51996,7 +51944,7 @@ var render = function() {
                                   [
                                     _c("i", { staticClass: "fas fa-trash" }),
                                     _vm._v(
-                                      "\r\n                                                លុប\r\n                                            "
+                                      "\n                                                លុប\n                                            "
                                     )
                                   ]
                                 )
@@ -52043,7 +51991,7 @@ var render = function() {
               }
             },
             [
-              _vm._m(4),
+              _vm._m(3),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "form-group" }, [
@@ -52199,7 +52147,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(5)
+              _vm._m(4)
             ]
           )
         ])
@@ -52214,45 +52162,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content-header" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", { staticClass: "m-0 text-dark" }, [
-              _vm._v("ព័ត៌មានអតិថិជន")
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-12" }, [
+            _c("h1", { staticClass: "m-0 text-dark text-center" }, [
+              _vm._v("Customers")
             ])
           ])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-tools" }, [
-      _c(
-        "div",
-        {
-          staticClass: "input-group input-group-sm",
-          staticStyle: { width: "150px" }
-        },
-        [
-          _c("input", {
-            staticClass: "form-control float-right",
-            attrs: { type: "text", name: "table_search", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-primary",
-                attrs: { type: "submit" }
-              },
-              [_c("i", { staticClass: "fas fa-search" })]
-            )
-          ])
-        ]
-      )
     ])
   },
   function() {
@@ -52282,7 +52199,7 @@ var staticRenderFns = [
     return _c("a", { staticClass: "btn btn-primary btn-sm" }, [
       _c("i", { staticClass: "fas fa-folder" }),
       _vm._v(
-        "\r\n                                                មើល\r\n                                            "
+        "\n                                                មើល\n                                            "
       )
     ])
   },
@@ -54386,27 +54303,18 @@ var render = function() {
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "mb-2" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary btn-circle",
+                    on: { click: _vm.newProduct }
+                  },
+                  [_c("i", { staticClass: "fas fa-plus-circle" })]
+                )
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("div", { staticClass: "card-title" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary btn-sm",
-                        on: { click: _vm.newProduct }
-                      },
-                      [
-                        _c("i", { staticClass: "fas fa-plus-circle" }),
-                        _vm._v(
-                          "\n                                បញ្ចូលព័ត៌មានថ្ម\n                            "
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]),
-                _vm._v(" "),
                 _c("div", { staticClass: "card-body p-0" }, [
                   _c(
                     "ul",
@@ -54563,7 +54471,7 @@ var render = function() {
               }
             },
             [
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "row" }, [
@@ -54890,7 +54798,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(3)
+              _vm._m(2)
             ]
           )
         ])
@@ -54905,45 +54813,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content-header" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", { staticClass: "m-0 text-dark" }, [
-              _vm._v("ព័ត៌មានអតិថិជន")
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-12" }, [
+            _c("h1", { staticClass: "m-0 text-dark text-center" }, [
+              _vm._v("Items")
             ])
           ])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-tools" }, [
-      _c(
-        "div",
-        {
-          staticClass: "input-group input-group-sm",
-          staticStyle: { width: "150px" }
-        },
-        [
-          _c("input", {
-            staticClass: "form-control float-right",
-            attrs: { type: "text", name: "table_search", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-primary",
-                attrs: { type: "submit" }
-              },
-              [_c("i", { staticClass: "fas fa-search" })]
-            )
-          ])
-        ]
-      )
     ])
   },
   function() {
@@ -55024,33 +54901,24 @@ var render = function() {
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "mb-2" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary btn-circle",
+                    on: { click: _vm.newTable }
+                  },
+                  [_c("i", { staticClass: "fas fa-plus-circle" })]
+                )
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("div", { staticClass: "card-title" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary btn-sm",
-                        on: { click: _vm.newTable }
-                      },
-                      [
-                        _c("i", { staticClass: "fas fa-plus-circle" }),
-                        _vm._v(
-                          "\n                                    បញ្ចូលព័ត៌មានថ្ម\n                                "
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ]),
-                _vm._v(" "),
                 _c("div", { staticClass: "card-body table-responsive p-0" }, [
                   _c(
                     "table",
                     { staticClass: "table table-hover text-nowrap" },
                     [
-                      _vm._m(2),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -55066,12 +54934,12 @@ var render = function() {
                               "td",
                               { staticClass: "project-actions text-right" },
                               [
-                                _vm._m(3, true),
+                                _vm._m(2, true),
                                 _vm._v(" "),
                                 _c(
                                   "a",
                                   {
-                                    staticClass: "btn btn-info btn-sm",
+                                    staticClass: "btn btn-default btn-sm",
                                     on: {
                                       click: function($event) {
                                         return _vm.infoTable(cus)
@@ -55091,7 +54959,7 @@ var render = function() {
                                 _c(
                                   "a",
                                   {
-                                    staticClass: "btn btn-danger btn-sm",
+                                    staticClass: "btn btn-default btn-sm",
                                     on: {
                                       click: function($event) {
                                         return _vm.deleteTable(cus.id)
@@ -55148,7 +55016,7 @@ var render = function() {
               }
             },
             [
-              _vm._m(4),
+              _vm._m(3),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "form-group" }, [
@@ -55216,7 +55084,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(5)
+              _vm._m(4)
             ]
           )
         ])
@@ -55231,45 +55099,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content-header" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", { staticClass: "m-0 text-dark" }, [
-              _vm._v("ព័ត៌មានអតិថិជន")
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-12" }, [
+            _c("h1", { staticClass: "m-0 text-dark text-center" }, [
+              _vm._v("Tables")
             ])
           ])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-tools" }, [
-      _c(
-        "div",
-        {
-          staticClass: "input-group input-group-sm",
-          staticStyle: { width: "150px" }
-        },
-        [
-          _c("input", {
-            staticClass: "form-control float-right",
-            attrs: { type: "text", name: "table_search", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-primary",
-                attrs: { type: "submit" }
-              },
-              [_c("i", { staticClass: "fas fa-search" })]
-            )
-          ])
-        ]
-      )
     ])
   },
   function() {
@@ -55292,7 +55129,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "btn btn-primary btn-sm" }, [
+    return _c("a", { staticClass: "btn btn-default btn-sm" }, [
       _c("i", { staticClass: "fas fa-folder" }),
       _vm._v(
         "\n                                            មើល\n                                        "
@@ -68655,8 +68492,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Project\POS-Vue-Demo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Project\POS-Vue-Demo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ubuntu/Projects/POS-Vue-Demo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ubuntu/Projects/POS-Vue-Demo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

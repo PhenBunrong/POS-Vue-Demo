@@ -3,41 +3,26 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">ព័ត៌មានអតិថិជន</h1>
-                </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                <div class="container-fluid">
+                    <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="m-0 text-dark text-center">Items</h1>
+                    </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
-            <!-- /.content-header -->
 
             <!-- Main content -->
             <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">
-                                <a class="btn btn-primary btn-sm" @click="newProduct">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="mb-2">
+                                <a class="btn btn-primary btn-circle" @click="newProduct">
                                     <i class="fas fa-plus-circle"></i>
-                                    បញ្ចូលព័ត៌មានថ្ម
                                 </a>
                             </div>
-
-                            <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                <div class="input-group-append">
-                                <button type="submit" class="btn btn-outline-primary"><i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
+                    <div class="card">  
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <ul class="products-list product-list-in-card pl-2 pr-2">
@@ -338,118 +323,77 @@
 </script>
 
 <style scoped>
-    .input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file {
-        display: none !important;
-    }
-    .products-list .product-title {
-        font-weight: bold;
-        font-size: 14px;
-    }
+.btn-circle{
+    font-size: 1.125rem;
+    border-radius: 50%;
+}
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    box-shadow: none;
+    
+}
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    box-shadow: none;
+    
+}
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    box-shadow: none;
+    
+}
+.btn-info:hover {
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: #0d6775;
+    border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+}
+.btn-danger:hover {
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: #8b1521;
+    border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+}
+.btn-primary:hover {
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: #115fb3;
+    border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+}
 
-    .products-list .product-description {
-        color: #6c757d;
-        font-size: 11px;
-        display: block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    a {
-        color: #3490dc;
-        text-decoration: none;
-        background-color: transparent;
-    }
-
-    .products-list .product-img img {
-        height: 50px;
-        width: 50px;
-    }
-    .modal-dialog {
-        max-width: 1300px;
-        margin: 1.75rem auto;
-    }
-
-    .text-forn-12{
-        font-size: 12px;
-    }
-    .text-forn-14{
-        font-size: 14px;
-        
-    }
-    .min--hight{
-        min-height: 260px;
-    }
-    .btn-info {
-        color: #fff;
-        background-color: #17a2b8;
-        border-color: #17a2b8;
-        box-shadow: none;
-        
-    }
-    .btn-danger {
-        color: #fff;
-        background-color: #dc3545;
-        border-color: #dc3545;
-        box-shadow: none;
-        
-    }
-    .btn-primary {
-        color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
-        box-shadow: none;
-        
-    }
-    .btn-info:hover {
-        display: inline-block;
-        color: #fff;
-        font-weight: 400;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
-        user-select: none;
-        background-color: #0d6775;
-        border: 1px solid transparent;
-            border-top-color: transparent;
-            border-right-color: transparent;
-            border-bottom-color: transparent;
-            border-left-color: transparent;
-    }
-    .btn-danger:hover {
-        display: inline-block;
-        color: #fff;
-        font-weight: 400;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
-        user-select: none;
-        background-color: #8b1521;
-        border: 1px solid transparent;
-            border-top-color: transparent;
-            border-right-color: transparent;
-            border-bottom-color: transparent;
-            border-left-color: transparent;
-    }
-    .btn-primary:hover {
-        display: inline-block;
-        color: #fff;
-        font-weight: 400;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
-        user-select: none;
-        background-color: #115fb3;
-        border: 1px solid transparent;
-            border-top-color: transparent;
-            border-right-color: transparent;
-            border-bottom-color: transparent;
-            border-left-color: transparent;
-            
-    }
-
-    #vali-photo{
-        display: inline;
-    }
 
 </style>
 

@@ -5,39 +5,25 @@
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
-                    <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">ព័ត៌មានអតិថិជន</h1>
+                    <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="m-0 text-dark text-center">Customers</h1>
                     </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-            <!-- /.content-header -->
 
             <!-- Main content -->
             <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <a class="btn btn-primary btn-sm" @click="newCustomer">
-                                        <i class="fas fa-plus-circle"></i>
-                                        បញ្ចូលព័ត៌មានថ្ម
-                                    </a>
-                                </div>
-
-                                <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                    <div class="input-group-append">
-                                    <button type="submit" class="btn btn-outline-primary"><i class="fas fa-search"></i></button>
-                                    </div>
-                                </div>
-                                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="mb-2">
+                                <a class="btn btn-primary btn-circle" @click="newCustomer">
+                                    <i class="fas fa-plus-circle"></i>
+                                </a>
                             </div>
+                        <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
@@ -243,6 +229,10 @@
 </script>
 
 <style scoped>
+.btn-circle{
+    font-size: 1.125rem;
+    border-radius: 50%;
+}
 .btn-info {
     color: #fff;
     background-color: #17a2b8;

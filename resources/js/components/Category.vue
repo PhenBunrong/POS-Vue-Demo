@@ -41,17 +41,17 @@
                                             <td>{{ cus.name + " - " + cus.name_kh }}</td>
                                             <td>{{ cus.dsc }}</td>
                                             <td class="project-actions text-right">
-                                                    <a class="btn btn-primary btn-sm">
+                                                    <a class="btn btn-default btn-sm">
                                                         <i class="fas fa-folder">
                                                         </i>
                                                         មើល
                                                     </a>
-                                                    <a class="btn btn-info btn-sm" @click="infoCategory(cus)">
+                                                    <a class="btn btn-default btn-sm" @click="infoCategory(cus)">
                                                         <i class="fas fa-pencil-alt">
                                                         </i>
                                                         កែប្រែ
                                                     </a>
-                                                    <a class="btn btn-danger btn-sm" @click="deleteCategory(cus.id)">
+                                                    <a class="btn btn-default btn-sm" @click="deleteCategory(cus.id)">
                                                         <i class="fas fa-trash">
                                                         </i>
                                                         លុប
