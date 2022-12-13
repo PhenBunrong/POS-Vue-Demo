@@ -92,3 +92,6 @@ Route::prefix('view')->group(function(){
 
 //Route::get('/customer', 'CustomerController@index')->name('customer.index');
 //Route::get('/customer', 'CustomerController@store')->name('customer.store');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
